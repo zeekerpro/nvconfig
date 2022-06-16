@@ -12,7 +12,7 @@ M.setup_lsp = function(attach, capabilities)
      "tsserver",
      "tailwindcss",
      "jsonls",
-     "emmet-ls"
+     "emmet_ls"
    }
 
    for _, lsp in ipairs(servers) do
