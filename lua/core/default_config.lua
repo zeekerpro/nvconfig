@@ -9,7 +9,7 @@ M.options = {
    user = function() end,
 
    nvChad = {
-      update_url = "https://github.com/NvChad/NvChad",
+      update_url = "https://github.com/zeekerpro/nvconfig.git",
       update_branch = "main",
    },
 }
