@@ -12,5 +12,8 @@ return {
   "lua",
   "scss",
  },
+ indent = {
+   enbale = true
+ }
 }
 
