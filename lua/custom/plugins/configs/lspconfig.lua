@@ -11,7 +11,8 @@ M.setup_lsp = function(attach, capabilities)
      "volar",
      "tsserver",
      "tailwindcss",
-     "jsonls"
+     "jsonls",
+     "emmet-ls"
    }
 
    for _, lsp in ipairs(servers) do

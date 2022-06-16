@@ -33,7 +33,7 @@ M.ui = {
     "chadtain",
     "onedark"
   },
-  transparency = true,
+  -- transparency = true,
 }
 
 return M
