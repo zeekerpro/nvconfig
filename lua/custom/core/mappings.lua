@@ -225,7 +225,7 @@ M.telescope = {
 }
 
 -- extra mappings not registor in whichkey
-vim.keymap.set('x', '<', '<gv')
-vim.keymap.set('x', '>', '>gv|')
+vim.keymap.set('x', '<', '<gv', { desc = 'Re-select blocks after indenting in visual/select mode '})
+vim.keymap.set('x', '>', '>gv|', { desc = 'Re-select blocks after indenting in visual/select mode'})
 
 return M
