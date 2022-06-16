@@ -224,4 +224,8 @@ M.telescope = {
    },
 }
 
+-- extra mappings not registor in whichkey
+vim.keymap.set('x', '<', '<gv')
+vim.keymap.set('x', '>', '>gv|')
+
 return M

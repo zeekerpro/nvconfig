@@ -11,8 +11,9 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 })
 
 -- 代码折叠
-opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- opt.foldmethod = "expr"
+-- opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldmethod = "indent"
 opt.foldlevel = 50
 
 -- disable swapfile
