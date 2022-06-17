@@ -224,6 +224,12 @@ M.telescope = {
    },
 }
 
+M.undotree = {
+  n = {
+    ["<Space>r"] = { "<cmd> UndotreeToggle <CR>", "社 undo history" }
+  }
+}
+
 -- extra mappings not registor in whichkey
 vim.keymap.set('x', '<', '<gv', { desc = 'Re-select blocks after indenting in visual/select mode '})
 vim.keymap.set('x', '>', '>gv|', { desc = 'Re-select blocks after indenting in visual/select mode'})
