@@ -55,6 +55,27 @@ M.bufferline = {
    },
 }
 
+M.comment = {
+
+   -- toggle comment in both modes
+   n = {
+      ["<Space>/"] = {
+         function()
+            require("Comment.api").toggle_current_linewise()
+         end,
+
+         "蘒  toggle comment",
+      },
+   },
+
+   v = {
+      ["<Space>/"] = {
+         "<ESC><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>",
+         "蘒  toggle comment",
+      },
+   },
+}
+
 M.symbols_outline = {
    n = {
       -- ["<leader>so"] = {"<cmd> SymbolsOutline <CR>", "ﴴ   symbols outline"}
