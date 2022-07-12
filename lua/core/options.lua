@@ -21,13 +21,8 @@ opt.cul = true -- cursor line
 
 -- Indenting
 opt.expandtab = true
---<<<<<<< HEAD
---opt.shiftwidth = 2
---opt.smartindent = false
---=======
 opt.shiftwidth = 3
 opt.smartindent = true
--->>>>>>> e0dda219ea5181f9a35efcd23cad1997ba54eb2d
 
 opt.fillchars = { eob = " " }
 opt.ignorecase = true
