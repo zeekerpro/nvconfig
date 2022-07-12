@@ -14,6 +14,7 @@ M.options = {
 M.plugins = {
   remove = {
     "NvChad/nvterm",
+    'lewis6991/gitsigns.nvim',
   },
   options = {
     lspconfig = {
