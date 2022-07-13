@@ -21,3 +21,9 @@ opt.swapfile = false
 
 -- keep cursor centered vertically on the screen
 opt.scrolloff=999
+
+opt.expandtab = true
+opt.shiftwidth = 2
+opt.smartindent = false
+
+
