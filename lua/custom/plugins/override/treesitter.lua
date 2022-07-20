@@ -11,6 +11,7 @@ return {
   "vue",
   "lua",
   "scss",
+  "python"
  },
  indent = {
    enbale = true
