@@ -65,41 +65,6 @@ M.remove_default_keys = function()
 end
 
 M.load_mappings = function(mappings, mapping_opt)
-<<<<<<< HEAD
-   -- set mapping function with/without whichkey
-   local set_maps
-   local whichkey_exists, wk = pcall(require, "which-key")
-
-   if whichkey_exists then
-      set_maps = function(keybind, mapping_info, opts)
-         wk.register({ [keybind] = mapping_info }, opts)
-      end
-   else
-      set_maps = function(keybind, mapping_info, opts)
-         local mode = opts.mode
-         opts.mode = nil
-         vim.keymap.set(mode, keybind, mapping_info[1], opts)
-      end
-   end
-
-   mappings = mappings or vim.deepcopy(M.load_config().mappings)
-   mappings.lspconfig = nil
-
-   for _, section in pairs(mappings) do
-      for mode, mode_values in pairs(section) do
-         for keybind, mapping_info in pairs(mode_values) do
-            -- merge default + user opts
-            local default_opts = merge_tb("force", { mode = mode }, mapping_opt or {})
-            local opts = merge_tb("force", default_opts, mapping_info.opts or {})
-            mapping_info.opts = nil
-
-            if mapping_info.opts then
-               mapping_info.opts = nil
-            end
-
-            set_maps(keybind, mapping_info, opts)
-         end
-=======
   -- set mapping function with/without whichkey
   local set_maps
   local whichkey_exists, wk = pcall(require, "which-key")
@@ -131,7 +96,6 @@ M.load_mappings = function(mappings, mapping_opt)
         end
 
         set_maps(keybind, mapping_info, opts)
->>>>>>> 6f0aa376a8f8e52d33cede45e903767644c7e401
       end
     end
   end
