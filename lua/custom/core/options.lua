@@ -25,5 +25,3 @@ opt.scrolloff=999
 opt.expandtab = true
 opt.shiftwidth = 2
 opt.smartindent = false
-
-

@@ -2,15 +2,6 @@
 
 local M = {}
 
--- make sure you maintain the structure of `core/default_config.lua` here,
--- example of changing theme:
-
-M.options = {
-  user = function ()
-    require "custom.core.options"
-  end
-}
-
 M.plugins = {
   remove = {
     "NvChad/nvterm",
