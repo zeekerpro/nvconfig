@@ -6,6 +6,7 @@ local M = {
   ["lukas-reineke/indent-blankline.nvim"] = require "custom.plugins.override.blankline",
   ["nvim-telescope/telescope.nvim"] = require "custom.plugins.override.telescope",
   ["akinsho/bufferline.nvim"] = require "custom.plugins.override.bufferline",
+  ["williamboman/mason.nvim"] = require "custom.plugins.override.mason",
 }
 
 return M

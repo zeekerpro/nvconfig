@@ -1,5 +1,13 @@
 return {
 
+  -- we are just modifying lspconfig's packer definition table
+  ["neovim/nvim-lspconfig"] = {
+    config = function()
+      require "plugins.configs.lspconfig"
+      require "custom.plugins.configs.lspconfig"
+    end,
+  },
+
   -- Automated session manager for Neovim
   ['rmagatti/auto-session'] = {
     config = function ()

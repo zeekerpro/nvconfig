@@ -7,11 +7,6 @@ M.plugins = {
     "NvChad/nvterm",
     'lewis6991/gitsigns.nvim',
   },
-  options = {
-    lspconfig = {
-      setup_lspconf = "custom.plugins.configs.lspconfig",
-    },
-  },
   user = require "custom.plugins",
   override = require "custom.plugins.override",
 }
