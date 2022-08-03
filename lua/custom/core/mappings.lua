@@ -49,10 +49,38 @@ M.general = {
    },
 }
 
-M.bufferline = {
-   n = {
-      ["<Space>-"] = { "<cmd> BufferLinePick <CR>", "﬘   pick bufferline" },
-   },
+M.tabufline = {
+
+  n = {
+    -- new buffer
+    ["<S-b>"] = { "<cmd> enew <CR>", "烙 new buffer" },
+
+    -- cycle through buffers
+    ["<TAB>"] = {
+      function()
+        require("core.utils").tabuflineNext()
+      end,
+      "  goto next buffer",
+    },
+
+    ["<S-Tab>"] = {
+      function()
+        require("core.utils").tabuflinePrev()
+      end,
+      "  goto prev buffer",
+    },
+
+    -- close buffer + hide terminal buffer
+    ["<leader>x"] = {
+      function()
+        require("core.utils").close_buffer()
+      end,
+      "   close buffer",
+    },
+
+    -- pick buffers via numbers
+    ["<Bslash>"] = { "<cmd> TbufPick <CR>", "  Pick buffer" },
+  },
 }
 
 M.comment = {
