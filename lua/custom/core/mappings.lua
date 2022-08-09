@@ -247,11 +247,11 @@ M.lspconfig = {
 M.telescope = {
    n = {
 
-      ["<ESC>"] = {
-         function()
-            require("telescope.actions").close()
-         end
-      },
+      -- ["<ESC>"] = {
+      --    function()
+      --       require("telescope.actions").close()
+      --    end
+      -- },
 
       -- find
       ["<leader>f"] = { "<cmd> Telescope find_files <CR>", "   find files" },
