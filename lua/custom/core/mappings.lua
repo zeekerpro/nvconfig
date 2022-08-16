@@ -85,23 +85,23 @@ M.tabufline = {
 
 M.comment = {
 
-   -- toggle comment in both modes
-   n = {
-      ["<Space>/"] = {
-         function()
-            require("Comment.api").toggle_current_linewise()
-         end,
+  -- toggle comment in both modes
+  n = {
+    ["<Space>/"] = {
+      function()
+        require("Comment.api").toggle.linewise.current()
+      end,
+      "toggle comment",
+    },
+  },
 
-         "蘒  toggle comment",
-      },
-   },
+  v = {
+    ["<Space>/"] = {
+      "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+      "toggle comment",
+    },
+  },
 
-   v = {
-      ["<Space>/"] = {
-         "<ESC><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>",
-         "蘒  toggle comment",
-      },
-   },
 }
 
 M.symbols_outline = {
