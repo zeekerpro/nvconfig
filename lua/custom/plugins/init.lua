@@ -23,7 +23,7 @@ return {
 
   ['simrat39/symbols-outline.nvim'] = {
     config = function ()
-      require 'custom.plugins.configs.symbols-outline'
+      require('custom.plugins.configs.symbols-outline').setup()
     end
   },
 
