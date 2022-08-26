@@ -56,6 +56,8 @@ return {
     cmd = {'UndotreeToggle'}
   },
 
-  ['chemzqm/wxapp.vim'] = {}
+  ['chemzqm/wxapp.vim'] = {
+    ft = {"wxss", "wxml"}
+  }
 
 }
