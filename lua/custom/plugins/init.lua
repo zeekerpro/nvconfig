@@ -54,6 +54,8 @@ return {
 
   ['mbbill/undotree'] = {
     cmd = {'UndotreeToggle'}
-  }
+  },
+
+  ['chemzqm/wxapp.vim'] = {}
 
 }
