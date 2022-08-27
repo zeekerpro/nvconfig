@@ -6,6 +6,7 @@ return {
 
     -- web dev
     "css-lsp",
+    "cssmodules-language-server",
     "html-lsp",
     "typescript-language-server",
     "emmet-ls",
@@ -22,5 +23,6 @@ return {
 
     -- other tools
     "grammarly-languageserver",
+    "yaml-language-server"
   }
 }
