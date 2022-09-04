@@ -45,8 +45,8 @@ return {
   ['editorconfig/editorconfig-vim'] = {},
 
   ['mattn/emmet-vim'] = {
-    event = {"InsertEnter"},
-    ft = { "html", "css", "vue", "javascript", "javascriptreact", "svelte" },
+    -- event = {"InsertEnter"},
+    ft = { "html", "css", "vue", "javascript", "javascriptreact", "svelte", "wxml", "wxss" },
     setup = function ()
       require("custom.plugins.configs.emmet").setup()
     end
