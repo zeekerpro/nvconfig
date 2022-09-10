@@ -2,14 +2,9 @@
 
 local M = {}
 
-M.plugins = {
-  remove = {
-    "NvChad/nvterm",
-    'lewis6991/gitsigns.nvim',
-  },
-  user = require "custom.plugins",
-  override = require "custom.plugins.override",
-}
+local plugins = require "custom.plugins"
+
+M.plugins = plugins
 
 M.mappings = require "custom.core.mappings"
 
