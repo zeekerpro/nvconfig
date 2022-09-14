@@ -173,7 +173,7 @@ M.lspconfig = {
       -- ?
       ["<Space>a"] = {
          function()
-            require("ui.renamer").open()
+            require("nvchad_ui.renamer").open()
          end,
          "   lsp rename",
       },
