@@ -18,6 +18,7 @@ return {
           mirror = false,
         }
       }
-    }
+    },
+    extensions_list = { },
   }
 }
