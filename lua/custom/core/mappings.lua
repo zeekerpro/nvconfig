@@ -58,14 +58,14 @@ M.tabufline = {
     -- cycle through buffers
     ["<TAB>"] = {
       function()
-        require("core.utils").tabuflineNext()
+        require("nvchad_ui.tabufline").tabuflineNext()
       end,
       "  goto next buffer",
     },
 
     ["<S-Tab>"] = {
       function()
-        require("core.utils").tabuflinePrev()
+        require("nvchad_ui.tabufline").tabuflinePrev()
       end,
       "  goto prev buffer",
     },
@@ -73,7 +73,7 @@ M.tabufline = {
     -- close buffer + hide terminal buffer
     ["<leader>x"] = {
       function()
-        require("core.utils").close_buffer()
+        require("nvchad_ui.tabufline").close_buffer()
       end,
       "   close buffer",
     },
