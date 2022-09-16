@@ -1,22 +1,30 @@
-return {
-  override_options = {
-     ensure_installed = {
-      "html",
-      "css",
-      "javascript",
-      "typescript",
-      "json",
-      "yaml",
-      "markdown",
-      "ruby",
-      "vue",
-      "lua",
-      "scss",
-      "python"
-     },
-     indent = {
-       enbale = true
-     }
-  }
+local options = {
+  ensure_installed = {
+    "lua",
+    "html",
+    "css",
+    "javascript",
+    "typescript",
+    "json",
+    "yaml",
+    "markdown",
+    "ruby",
+    "vue",
+    "lua",
+    "scss",
+    "python"
+  },
+
+  highlight = {
+    enable = true,
+    use_languagetree = true,
+  },
+
+  indent = {
+    enable = false,
+  },
 }
 
+return {
+  override_options = options
+}
