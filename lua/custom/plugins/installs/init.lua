@@ -13,10 +13,8 @@ return {
     config = function ()
       local present, auto_session = pcall(require, 'auto-session')
       if present then
-        auto_session.setup( {
-          log_level = 'info',
-          auto_session_suppress_dirs = {'~/', '~/Projects'}
-        })
+        local conf = require  "custom.plugins.installs.configs.auto_session"
+        auto_session.setup(conf)
       end
     end
   },
