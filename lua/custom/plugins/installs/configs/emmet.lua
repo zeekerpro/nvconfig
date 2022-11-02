@@ -9,11 +9,4 @@ M.setup = function ()
   g.user_emmet_complete_tag = 0
 end
 
-M.config = function ()
-  vim.api.nvim_command('EmmetInstall')
-end
-
-
-
-
 return M

@@ -49,7 +49,7 @@ return {
       require("custom.plugins.installs.configs.emmet").setup()
     end,
     config = function ()
-      require("custom.plugins.installs.configs.emmet").config()
+      vim.api.nvim_command('EmmetInstall')
     end
   },
 
