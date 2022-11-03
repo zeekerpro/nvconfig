@@ -48,9 +48,7 @@ return {
     setup = function ()
       require("custom.plugins.installs.configs.emmet").setup()
     end,
-    config = function ()
-      vim.api.nvim_command('EmmetInstall')
-    end
+    config = 'vim.cmd[[EmmetInstall]]'
   },
 
   ['mbbill/undotree'] = {
