@@ -31,7 +31,8 @@ local options = {
   git = {
     enable = false,
     -- shown or not the files in .gitignore, if the value is true, these will shown.
-    ignore = false,
+    -- normal H toggles dotfiles / normal I toggles gitignore
+    ignore = true,
   },
   filesystem_watchers = {
     enable = true,
