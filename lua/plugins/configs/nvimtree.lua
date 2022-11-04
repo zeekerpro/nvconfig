@@ -30,7 +30,8 @@ local options = {
   },
   git = {
     enable = false,
-    ignore = true,
+    -- shown or not the files in .gitignore, if the value is true, these will shown.
+    ignore = false,
   },
   filesystem_watchers = {
     enable = true,
