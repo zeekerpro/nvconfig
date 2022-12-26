@@ -44,7 +44,7 @@ return {
 
   ['mattn/emmet-vim'] = {
     -- event = {"InsertEnter", "FileType"},
-    ft = { "html", "css", "vue", "javascript", "javascriptreact", "svelte", "wxml", "wxss", "scss", "sass" },
+    ft = { "html", "css", "vue", "javascript", "javascriptreact", "svelte", "wxml", "wxss", "scss", "sass", "erb" },
     setup = function ()
       require("custom.plugins.installs.configs.emmet").setup()
     end,
