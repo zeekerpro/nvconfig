@@ -14,7 +14,7 @@ local servers = {
  "jsonls",
  "emmet_ls",
  "pylsp",
- "pyright"
+ "pyright",
 }
 
 for _, lsp in ipairs(servers) do
