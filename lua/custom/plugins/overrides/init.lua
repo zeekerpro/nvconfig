@@ -1,7 +1,7 @@
 -- overriding default plugin configs!
 
 local M = {
-  ["kyazdani42/nvim-tree.lua"] = require "custom.plugins.overrides.nvimtree",
+  ["nvim-tree/nvim-tree.lua"] = require "custom.plugins.overrides.nvimtree",
   ["nvim-treesitter/nvim-treesitter"] = require "custom.plugins.overrides.treesitter",
   ["lukas-reineke/indent-blankline.nvim"] = require "custom.plugins.overrides.blankline",
   ["nvim-telescope/telescope.nvim"] = require "custom.plugins.overrides.telescope",
