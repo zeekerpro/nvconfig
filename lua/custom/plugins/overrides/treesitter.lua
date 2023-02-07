@@ -12,7 +12,8 @@ local options = {
     "vue",
     "lua",
     "scss",
-    "python"
+    "python",
+    "svelte"
   },
 
   highlight = {
