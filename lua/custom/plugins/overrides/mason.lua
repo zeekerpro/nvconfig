@@ -23,7 +23,6 @@ return {
     "python-lsp-server",
 
     -- other tools
-    "grammarly-languageserver",
     "yaml-language-server"
   },
 }

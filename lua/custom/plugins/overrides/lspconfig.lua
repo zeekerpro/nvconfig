@@ -15,6 +15,8 @@ local servers = {
    "emmet_ls",
    "pylsp",
    "pyright",
+   "lua_ls",
+   "svelte"
 }
 
 for _, lsp in ipairs(servers) do
