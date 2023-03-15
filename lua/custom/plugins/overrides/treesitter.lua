@@ -1,0 +1,30 @@
+return {
+  ensure_installed = {
+    "lua",
+    "html",
+    "css",
+    "javascript",
+    "typescript",
+    "json",
+    "yaml",
+    "markdown",
+    "ruby",
+    "vue",
+    "lua",
+    "scss",
+    "python",
+    "svelte"
+  },
+  indent = {
+    enable = false,
+    disable = {
+      "python"
+    },
+  },
+  highlight = {
+    enable = true,
+    use_languagetree = true,
+  },
+
+}
+
