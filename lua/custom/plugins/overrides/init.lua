@@ -37,7 +37,7 @@ return {
 
   {
     "akinsho/bufferline.nvim",
-    opts = "custom.plugins.overrides.bufferline"
+    opts = require  "custom.plugins.overrides.bufferline"
   },
 
   {
