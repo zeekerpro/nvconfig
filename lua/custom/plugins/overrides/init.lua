@@ -1,17 +1,16 @@
 return {
 
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    after = "nvim-lspconfig",
+    config = function()
+      require("custom.plugins.overrides.null-ls").setup()
+    end,
+  },
+
   -- Override plugin definition options
   {
     "neovim/nvim-lspconfig",
-    dependencies = {
-      -- format & linting
-      {
-        "jose-elias-alvarez/null-ls.nvim",
-        config = function()
-          require "custom.plugins.overrides.null-ls"
-        end,
-      },
-    },
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.plugins.overrides.lspconfig"
@@ -27,7 +26,17 @@ return {
   -- overrde plugin configs
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = require "custom.plugins.overrides.treesitter"
+    init = require("core.utils").lazy_load "nvim-treesitter",
+    cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
+    build = ":TSUpdate",
+    opts = function()
+      -- return require "plugins.configs.treesitter"
+      return require "custom.plugins.overrides.treesitter"
+    end,
+    config = function(_, opts)
+      pcall(dofile, vim.g.base46_cache .. "syntax")
+      require("nvim-treesitter.configs").setup(opts)
+    end,
   },
 
   {
