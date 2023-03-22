@@ -62,10 +62,12 @@ return {
   {
     'chemzqm/wxapp.vim',
     ft = {"wxss", "wxml"}
+  },
+
+  {
+    'Exafunction/codeium.vim',
+    lazy = false
   }
 
-
 }
-
-
 

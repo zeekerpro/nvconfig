@@ -283,6 +283,16 @@ M.undotree = {
   }
 }
 
+M.codeium = {
+  i = {
+    ["<Space>c"] = { "<cmd> call codeium#Complete()  <CR>", "󰘦  manually trigger suggestion" },
+    ["<Tab>"] = { "<cmd> call codeium#Accept()  <CR>", "󰘦  insert suggestion" },
+    ["<Space>,"] = { "<cmd> call codeium#CycleCompletions(1)  <CR>", "󰘦  next suggestion" },
+    ["<Space>."] = { "<cmd> call codeium#CycleCompletions(-1)  <CR>", "󰘦  previous suggestion" },
+    ["<Space>x"] = { "<cmd> call codeium#Clear()  <CR>", "󰘦  clear current suggestion" },
+  }
+}
+
 -- extra mappings not registor in whichkey
 vim.keymap.set('x', '<', '<gv', { desc = 'Re-select blocks after indenting in visual/select mode '})
 vim.keymap.set('x', '>', '>gv|', { desc = 'Re-select blocks after indenting in visual/select mode'})
