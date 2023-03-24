@@ -64,10 +64,48 @@ return {
     ft = {"wxss", "wxml"}
   },
 
+  -- {
+  --   'Exafunction/codeium.vim',
+  --   lazy = false
+  -- },
+
+  -- {
+  --   'github/copilot.vim',
+  --   lazy = false
+  -- },
+
   {
-    'Exafunction/codeium.vim',
-    lazy = false
+    'zbirenbaum/copilot.lua',
+    cmd = "Copilot",
+    lazy = false,
+    config = function()
+      require("copilot").setup({
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      })
+    end
+  },
+
+  {
+    "zbirenbaum/copilot-cmp",
+    lazy = false,
+    dependencies = {"zbirenbaum/copilot.lua" },
+    config = function ()
+      require("copilot_cmp").setup()
+    end
   }
+
+  -- add ChatGPT.nvim plugin
+  -- {
+  --   "jackMort/ChatGPT.nvim",
+  --   lazy = false,
+  --   dependencies = {
+  --     "MunifTanjim/nui.nvim",
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-telescope/telescope.nvim"
+  --   }
+  -- },
+
 
 }
 

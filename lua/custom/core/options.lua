@@ -4,6 +4,9 @@ local g = vim.g
 
 g.mapleader = ";"
 
+-- https://www.reddit.com/r/neovim/comments/wbx4r6/has_anyone_managed_to_use_github_copilot_in_nvchad/
+g.copilot_assume_mapped = true
+
 -- 自动删除行尾空格
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*" },
