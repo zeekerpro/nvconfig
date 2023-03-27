@@ -94,18 +94,20 @@ return {
     config = function ()
       require("copilot_cmp").setup()
     end
-  }
+  },
 
-  -- add ChatGPT.nvim plugin
-  -- {
-  --   "jackMort/ChatGPT.nvim",
-  --   lazy = false,
-  --   dependencies = {
-  --     "MunifTanjim/nui.nvim",
-  --     "nvim-lua/plenary.nvim",
-  --     "nvim-telescope/telescope.nvim"
-  --   }
-  -- },
+  {
+    "jackMort/ChatGPT.nvim",
+    lazy = false,
+    config = function ()
+      require("chatgpt").setup()
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+  },
 
 
 }
