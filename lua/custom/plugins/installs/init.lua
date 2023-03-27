@@ -80,10 +80,7 @@ return {
     cmd = "Copilot",
     lazy = false,
     config = function()
-      require("copilot").setup({
-        suggestion = { enabled = false },
-        panel = { enabled = false },
-      })
+      require("copilot").setup(require("custom.plugins.installs.copilot"))
     end
   },
 
