@@ -7,12 +7,12 @@ local M = {
     auto_trigger = true,
     debounce = 80,
     keymap = {
-      accept = "<C-l>",
+      accept = "<C-k>",
       accept_word = false,
       accept_line = false,
-      next = "<C-j>",
-      prev = "<C-k>",
-      dismiss = "<C-h>",
+      next = "<C-h>",
+      prev = "<C-l>",
+      dismiss = "<C-x>",
     },
   },
   panel = {
@@ -22,11 +22,11 @@ local M = {
       ratio = 0.8
     },
     keymap = {
-      jump_prev = "<C-k>",
-      jump_next = "<C-j>",
+      jump_prev = "<C-h>",
+      jump_next = "<C-l>",
       accept = "<CR>",
       refresh = "gr",
-      open = "<C-CR>"
+      open = "<C-j>"
     },
   },
 }
