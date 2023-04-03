@@ -186,7 +186,7 @@ M.lspconfig = {
 
     ["<leader>f"] = {
       function()
-        vim.diagnostic.open_float()
+        vim.diagnostic.open_float { border = "rounded" }
       end,
       "floating diagnostic",
     },
@@ -329,7 +329,6 @@ M.nvterm = {
     },
 
     -- new
-
     ["<leader>h"] = {
       function()
         require("nvterm.terminal").new "horizontal"
