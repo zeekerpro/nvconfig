@@ -1,10 +1,7 @@
 local M = {}
 
 M.options = {
-  nvChad = {
-    update_url = "https://github.com/zeekerpro/nvconfig.git",
-    update_branch = "v2.0",
-  },
+  nvchad_url = "https://github.com/zeekerpro/nvconfig.git",
   nvchad_branch = "v2.0",
 }
 
