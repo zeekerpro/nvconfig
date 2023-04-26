@@ -42,6 +42,11 @@ return {
   {
     "nvim-tree/nvim-tree.lua",
     opts = require "custom.plugins.overrides.nvimtree",
+    config = function(_, opts)
+      dofile(vim.g.base46_cache .. "nvimtree")
+      require("nvim-tree").setup(opts)
+      vim.g.nvimtree_side = opts.view.side
+    end,
   },
 
   {
