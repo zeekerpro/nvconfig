@@ -7,7 +7,7 @@ return {
     -- web dev
     "css-lsp",
     "cssmodules-language-server",
-    "tailwindcss-languabe-server",
+    "tailwindcss-language-server",
     "html-lsp",
     "typescript-language-server",
     "emmet-ls",
