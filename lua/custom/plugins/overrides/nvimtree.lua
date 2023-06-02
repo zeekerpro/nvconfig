@@ -249,6 +249,7 @@ M.on_attach = function (bufnr)
   vim.keymap.set('n', 'w', function()
     local node = api.tree.get_node_under_cursor()
     -- your code goes here
+    toggle_width()
   end, opts('toggle_width'))
 end
 
