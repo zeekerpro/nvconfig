@@ -134,8 +134,16 @@ return {
           -- Options go here
       })
     end,
-  }
+  },
 
+  -- https://www.reddit.com/r/neovim/comments/14g36rs/minifiles_navigate_and_manipulate_file_system/
+  -- {
+  --   'echasnovski/mini.nvim',
+  --   version = '*',
+  --   config = function ()
+  --     require("mini").setup()
+  --   end
+  -- },
 
 }
 
