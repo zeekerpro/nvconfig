@@ -19,7 +19,7 @@ local M = {
     enabled = true,
     layout = {
       position = "right",
-      ratio = 0.8
+      ratio = 0.6
     },
     keymap = {
       jump_prev = "<C-h>",
