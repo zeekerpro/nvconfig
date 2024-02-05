@@ -148,6 +148,7 @@ return {
 
   {
     "ray-x/go.nvim",
+    lazy=false,
     dependencies = {  -- optional packages
       "ray-x/guihua.lua",
       "neovim/nvim-lspconfig",

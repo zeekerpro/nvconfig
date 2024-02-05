@@ -16,6 +16,7 @@ local servers = {
    "pylsp",
    "pyright",
    "lua_ls",
+   "gopls",
    "svelte"
 }
 
