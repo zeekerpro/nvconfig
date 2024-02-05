@@ -22,6 +22,9 @@ return {
     "pyright",
     "python-lsp-server",
 
+    -- go
+    "gopls",
+
     -- other tools
     "yaml-language-server"
   },
