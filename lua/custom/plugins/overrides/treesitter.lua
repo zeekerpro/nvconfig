@@ -13,7 +13,8 @@ return {
     "lua",
     "scss",
     "python",
-    "svelte"
+    "svelte",
+    "glimmer"
   },
   indent = {
     enable = false,
