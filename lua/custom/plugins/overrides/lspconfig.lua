@@ -9,7 +9,7 @@ local servers = {
    "cssls",
    "solargraph",
    "volar",
-   "tsserver",
+   "ts_ls",
    "tailwindcss",
    "jsonls",
    "emmet_ls",
