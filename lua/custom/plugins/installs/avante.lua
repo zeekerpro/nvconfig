@@ -6,8 +6,7 @@ local opts = {
   provider = "openai", -- Recommend using Claude
   auto_suggestions_provider = "openai", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
   claude = {
-    -- endpoint = "https://api.openai.com",
-    endpoint = "https://0ab6c421e8156f04254620f96cfa4e2e.api-forwards.com",
+    endpoint = "https://api.openai.com",
     model = "gpt-4o-mini",
     temperature = 0,
     max_tokens = 4096,
@@ -98,6 +97,10 @@ local deps = {
   "nvim-lua/plenary.nvim",
   "MunifTanjim/nui.nvim",
   --- The below dependencies are optional,
+  "echasnovski/mini.pick", -- for file_selector provider mini.pick
+  "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+  "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+  "ibhagwan/fzf-lua", -- for file_selector provider fzf
   "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
   "zbirenbaum/copilot.lua", -- for providers='copilot'
   {
