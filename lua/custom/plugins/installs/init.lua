@@ -66,20 +66,10 @@ return {
     ft = {"wxss", "wxml"}
   },
 
-  -- https://www.reddit.com/r/neovim/comments/14g36rs/minifiles_navigate_and_manipulate_file_system/
-  -- {
-  --   'echasnovski/mini.nvim',
-  --   version = '*',
-  --   config = function ()
-  --     require("mini").setup()
-  --   end
-  -- },
-
-
   {
     "folke/flash.nvim",
     event = "VeryLazy",
-    ---@type Flash.Config
+    -- @type Flash.Config
     opts = {},
     -- stylua: ignore
     keys = {
@@ -91,7 +81,6 @@ return {
     },
   },
 
-  ---@type LazySpec
   {
     "mikavilpas/yazi.nvim",
     dependencies = {
@@ -107,7 +96,6 @@ return {
         { desc = "Open the file manager" },
       },
     },
-    ---@type YaziConfig
     opts = {
       -- Below is the default configuration. It is optional to set these values.
       -- You can customize the configuration for each yazi call by passing it to
@@ -159,21 +147,6 @@ return {
     },
   },
 
-  {
-    "ray-x/go.nvim",
-    dependencies = {  -- optional packages
-      "ray-x/guihua.lua",
-      "neovim/nvim-lspconfig",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    config = function()
-      require("go").setup()
-    end,
-    event = {"CmdlineEnter"},
-    ft = {"go", 'gomod'},
-    build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
-  },
-
   -- nvim v0.8.0
   {
     "kdheepak/lazygit.nvim",
@@ -196,35 +169,12 @@ return {
     }
   },
 
-  -- ai completions
   {
-    'zbirenbaum/copilot.lua',
-    cmd = "Copilot",
+    'augmentcode/augment.vim',
     lazy = false,
-    config = function()
-      require("copilot").setup(require("custom.plugins.installs.copilot"))
-    end
-  },
-
-  {
-    "zbirenbaum/copilot-cmp",
-    lazy = false,
-    dependencies = {"zbirenbaum/copilot.lua" },
-    config = function ()
-      require("copilot_cmp").setup()
-    end
-  },
-
-  {
-    "yetone/avante.nvim",
-    event = "VeryLazy",
-    lazy = false,
-    version = false, -- set this if you want to always pull the latest change
-    opts = require("custom.plugins.installs.avante").opts,
-    -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-    build = "make",
-    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
-    dependencies = require("custom.plugins.installs.avante").deps,
+    keys = {
+        { "<Space>c", "<cmd>Augment chat<cr>", desc = "augmentcode" }
+    }
   },
 
 }

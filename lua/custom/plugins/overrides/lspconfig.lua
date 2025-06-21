@@ -14,12 +14,12 @@ local servers = {
    "jsonls",
    "emmet_ls",
    "pylsp",
-   "pyright",
+   -- "pyright",
    "lua_ls",
-   "gopls",
-   "svelte",
-   "ember",
-   "glint"
+   -- "gopls",
+   -- "svelte",
+   -- "ember",
+   -- "glint"
 }
 
 for _, lsp in ipairs(servers) do
