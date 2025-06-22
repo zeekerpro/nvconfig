@@ -1,4 +1,8 @@
-dofile(vim.g.base46_cache .. "nvimtree")
+-- Load nvimtree theme cache safely
+local cache_file = vim.g.base46_cache .. "nvimtree"
+if vim.loop.fs_stat(cache_file) then
+  dofile(cache_file)
+end
 
 return {
   filters = { dotfiles = false },

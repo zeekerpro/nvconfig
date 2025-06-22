@@ -1,6 +1,15 @@
+-- Load treesitter theme cache safely
 pcall(function()
-  dofile(vim.g.base46_cache .. "syntax")
-  dofile(vim.g.base46_cache .. "treesitter")
+  local syntax_cache = vim.g.base46_cache .. "syntax"
+  local treesitter_cache = vim.g.base46_cache .. "treesitter"
+  
+  if vim.loop.fs_stat(syntax_cache) then
+    dofile(syntax_cache)
+  end
+  
+  if vim.loop.fs_stat(treesitter_cache) then
+    dofile(treesitter_cache)
+  end
 end)
 
 return {

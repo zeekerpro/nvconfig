@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(nvim:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(timeout 60 nvim:*)",
+      "Bash(timeout 30 nvim:*)",
+      "Bash(ls:*)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(timeout 10 nvim:*)",
+      "Bash(timeout 5 nvim:*)",
+      "Bash(rm:*)",
+      "Bash(timeout:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": []
+  }
+}

@@ -1,4 +1,8 @@
-dofile(vim.g.base46_cache .. "cmp")
+-- Load cmp theme cache safely
+local cache_file = vim.g.base46_cache .. "cmp"
+if vim.loop.fs_stat(cache_file) then
+  dofile(cache_file)
+end
 
 local cmp = require "cmp"
 

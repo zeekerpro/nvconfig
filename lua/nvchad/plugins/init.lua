@@ -23,7 +23,10 @@ return {
   {
     "nvim-tree/nvim-web-devicons",
     opts = function()
-      dofile(vim.g.base46_cache .. "devicons")
+      local cache_file = vim.g.base46_cache .. "devicons"
+      if vim.loop.fs_stat(cache_file) then
+        dofile(cache_file)
+      end
       return { override = require "nvchad.icons.devicons" }
     end,
   },
@@ -31,18 +34,26 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "User FilePost",
-    opts = {
-      indent = { char = "│", highlight = "IblChar" },
-      scope = { char = "│", highlight = "IblScopeChar" },
-    },
-    config = function(_, opts)
-      dofile(vim.g.base46_cache .. "blankline")
+    config = function()
+      local cache_file = vim.g.base46_cache .. "blankline"
+      if vim.loop.fs_stat(cache_file) then
+        dofile(cache_file)
+      end
 
-      local hooks = require "ibl.hooks"
-      hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
-      require("ibl").setup(opts)
-
-      dofile(vim.g.base46_cache .. "blankline")
+      -- Use old version configuration since that's what's installed
+      local ok, indent_blankline = pcall(require, "indent_blankline")
+      if ok then
+        indent_blankline.setup({
+          char = "│",
+          show_trailing_blankline_indent = false,
+          show_first_indent_level = false,
+          use_treesitter = true,
+          show_current_context = true,
+          context_patterns = {
+            "class", "function", "method", "block", "list_literal", "selector", "^if", "^table", "if_statement", "while", "for"
+          }
+        })
+      end
     end,
   },
 
@@ -60,7 +71,10 @@ return {
     keys = { "<leader>", "<c-w>", '"', "'", "`", "c", "v", "g" },
     cmd = "WhichKey",
     opts = function()
-      dofile(vim.g.base46_cache .. "whichkey")
+      local cache_file = vim.g.base46_cache .. "whichkey"
+      if vim.loop.fs_stat(cache_file) then
+        dofile(cache_file)
+      end
       return {}
     end,
   },
@@ -137,7 +151,7 @@ return {
         "hrsh7th/cmp-nvim-lua",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
-        "https://codeberg.org/FelipeLema/cmp-async-path.git"
+        "FelipeLema/cmp-async-path"
       }
     },
     opts = function()
@@ -166,4 +180,7 @@ return {
       require("nvim-treesitter.configs").setup(opts)
     end,
   },
+
+  -- Load custom plugins
+  unpack(require "custom.plugins"),
 }

@@ -105,3 +105,29 @@ map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
 map("n", "<leader>wk", function()
   vim.cmd("WhichKey " .. vim.fn.input "WhichKey: ")
 end, { desc = "whichkey query lookup" })
+
+-- Load custom mappings
+local ok, custom_mappings = pcall(require, "custom.core.mappings")
+if ok then
+  -- Load custom mappings
+  local function apply_mappings(mapping_table)
+    for mode, mode_mappings in pairs(mapping_table) do
+      for key, mapping in pairs(mode_mappings) do
+        if type(mapping) == "table" and mapping[1] then
+          local cmd = mapping[1]
+          local desc = mapping[2] or ""
+          local opts = mapping.opts or {}
+          opts.desc = desc
+          vim.keymap.set(mode, key, cmd, opts)
+        end
+      end
+    end
+  end
+
+  -- Apply all custom mappings
+  for category, mappings in pairs(custom_mappings) do
+    if category ~= "disabled" then
+      apply_mappings(mappings)
+    end
+  end
+end
