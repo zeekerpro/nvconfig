@@ -19,7 +19,7 @@ local default_config = {
       lspprogress_len = 25,
     },
     tabufline = {
-      enabled = false,  -- Disable to avoid loading issues
+      enabled = false,  -- Disable NvChad tabufline
       lazyload = false,
       overriden_modules = nil,
       show_numbers = false,

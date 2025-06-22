@@ -52,30 +52,20 @@ M.general = {
   },
 }
 
--- Tab/Buffer line mappings
-M.tabufline = {
+-- Buffer line mappings
+M.bufferline = {
   n = {
     -- New buffer
     ["<S-b>"] = { "<cmd> enew <CR>", "烙 new buffer" },
 
     -- Cycle through buffers
-    ["<TAB>"] = {
-      "<cmd>bnext<CR>",
-      "  goto next buffer",
-    },
+    ["<TAB>"] = { "<cmd>BufferLineCycleNext<CR>", "  goto next buffer" },
+    ["<S-Tab>"] = { "<cmd>BufferLineCyclePrev<CR>", "  goto prev buffer" },
 
-    ["<S-Tab>"] = {
-      "<cmd>bprevious<CR>",
-      "  goto prev buffer",
-    },
+    -- Close buffer with Cmd+W (macOS style)
+    ["<D-w>"] = { "<cmd>bdelete<CR>", "   close buffer" },
 
-    -- Close buffer
-    ["<leader>x"] = {
-      "<cmd>bdelete<CR>",
-      "   close buffer",
-    },
-
-    -- Pick buffers via numbers
+    -- Pick buffers via telescope
     ["<Bslash>"] = { "<cmd> Telescope buffers <CR>", "  Pick buffer" },
   },
 }
@@ -240,7 +230,7 @@ M.lspconfig = {
 -- Telescope mappings
 M.telescope = {
   n = {
-    -- Find files
+    -- File finding
     ["<leader>f"] = { "<cmd> Telescope find_files <CR>", "   find files" },
     ["<leader>a"] = { 
       "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", 

@@ -13,7 +13,10 @@
       "Bash(timeout 5 nvim:*)",
       "Bash(rm:*)",
       "Bash(timeout:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "Bash(echo $TERM)",
+      "Bash(rg:*)"
     ],
     "deny": []
   }

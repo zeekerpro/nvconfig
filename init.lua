@@ -13,6 +13,9 @@ vim.opt.rtp:prepend(lazypath)
 require "nvchad.options"
 require "nvchad.autocmds"
 
+-- Load custom configuration
+pcall(require, "custom")
+
 -- Setup lazy.nvim
 require("lazy").setup("nvchad.plugins", {
   defaults = { lazy = true },
@@ -68,26 +71,30 @@ require("lazy").setup("nvchad.plugins", {
 vim.schedule(function()
   require "nvchad.mappings"
   
-  -- Initialize theme with safe fallback
+  -- Initialize theme with better loading
   local function setup_theme()
-    -- Just set a basic colorscheme for now to avoid base46 issues
-    local ok, _ = pcall(vim.cmd, "colorscheme default")
-    if not ok then
-      vim.notify("Using fallback colorscheme", vim.log.levels.INFO)
-    end
+    -- Load user config first
+    local config = require("core.utils").load_config()
     
-    -- Try to load base46 if available, but don't fail if it doesn't work
-    pcall(function()
+    -- Try to load base46 theme system
+    local theme_loaded = pcall(function()
       local base46 = require("base46")
+      base46.load_theme(config.ui.theme)
       base46.load_all_highlights()
-      vim.cmd("colorscheme nvchad")
     end)
+    
+    if not theme_loaded then
+      -- Fallback to a good default colorscheme
+      local fallback_schemes = { "habamax", "slate", "desert", "default" }
+      for _, scheme in ipairs(fallback_schemes) do
+        if pcall(vim.cmd, "colorscheme " .. scheme) then
+          break
+        end
+      end
+    end
   end
   
   setup_theme()
   
-  -- Setup simple buffer management instead of tabufline
-  pcall(function()
-    require("custom.simple_bufline").setup()
-  end)
+  -- Bufferline will be loaded automatically by lazy.nvim
 end)

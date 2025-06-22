@@ -5,3 +5,4 @@ vim.g.mapleader = ";"
 
 -- Load custom options
 require "custom.core.options"
+

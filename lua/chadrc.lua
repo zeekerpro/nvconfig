@@ -5,13 +5,39 @@ local M = {}
 local highlights = require "custom.highlights"
 
 M.ui = {
-  theme = "onedark", -- Use a more stable theme
-  theme_toggle = { "onedark", "one_light" },
+  theme = "catppuccin", -- More visually appealing theme
+  theme_toggle = { "catppuccin", "github_light" },
 
   hl_override = highlights.override,
   hl_add = highlights.add,
 
-  transparency = true,
+  transparency = false, -- Disable transparency for better color consistency
+  
+  -- Enhanced statusline
+  statusline = {
+    theme = "vscode_colored",
+    separator_style = "round",
+  },
+  
+  -- Disable NvChad tabufline, use bufferline.nvim instead
+  tabufline = {
+    enabled = false,
+    show_numbers = false,
+  },
+  
+  -- Telescope styling
+  telescope = {
+    style = "bordered",
+  },
+  
+  -- Better completion menu styling  
+  cmp = {
+    icons = true,
+    lspkind_text = true,
+    style = "atom_colored",
+    border_color = "grey_fg",
+    selected_item_bg = "colored",
+  },
 }
 
 return M

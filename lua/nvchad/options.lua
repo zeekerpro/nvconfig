@@ -6,6 +6,31 @@ local g = vim.g
 o.laststatus = 3
 o.showmode = false
 
+-- Enable true colors for better color consistency
+o.termguicolors = true
+
+-- Force background color consistency with terminal
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
+  callback = function()
+    vim.api.nvim_set_hl(0, "Normal", { bg = "#141b26", fg = "#ffffff" })
+    vim.api.nvim_set_hl(0, "NormalNC", { bg = "#141b26", fg = "#ffffff" })
+  end,
+})
+
+-- Better visual feedback
+o.cmdheight = 1
+o.conceallevel = 0
+o.pumheight = 10
+o.showtabline = 2
+o.smarttab = true
+o.wrap = false
+
+-- Enhanced visual elements
+o.relativenumber = false
+o.scrolloff = 8
+o.sidescrolloff = 8
+
 o.clipboard = "unnamedplus"
 o.cursorline = true
 o.cursorlineopt = "number"

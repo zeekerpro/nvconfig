@@ -19,10 +19,32 @@ opt.foldlevel = 50
 -- Disable swapfile
 opt.swapfile = false
 
--- Keep cursor centered vertically on the screen
-opt.scrolloff = 999
+-- Better scroll behavior (was too extreme with 999)
+opt.scrolloff = 8
 
 -- Indentation settings
 opt.expandtab = true
 opt.shiftwidth = 2
 opt.smartindent = false
+
+-- Enhanced visual settings for better appearance
+opt.list = true
+opt.listchars = {
+  tab = "→ ",
+  trail = "·",
+  extends = "◣",
+  precedes = "◢",
+  nbsp = "○"
+}
+
+-- Better completion experience
+opt.completeopt = "menu,menuone,noselect"
+opt.shortmess:append("c")
+
+-- Improve search experience
+opt.hlsearch = true
+opt.incsearch = true
+
+-- Better window behavior
+opt.splitbelow = true
+opt.splitright = true

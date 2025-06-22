@@ -1,5 +1,21 @@
 -- Custom plugins configuration
 return {
+  -- VSCode-like buffer tabs
+  {
+    "akinsho/bufferline.nvim",
+    event = "VeryLazy",
+    dependencies = "nvim-tree/nvim-web-devicons",
+    opts = function()
+      return require "custom.configs.bufferline"
+    end,
+  },
+  -- Override nvim-tree with optimized icons
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = function()
+      return require "custom.configs.nvimtree"
+    end,
+  },
   -- Comment plugin (required for mappings)
   {
     "numToStr/Comment.nvim",
