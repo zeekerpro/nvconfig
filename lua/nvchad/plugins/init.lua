@@ -27,8 +27,7 @@ return {
       if vim.loop.fs_stat(cache_file) then
         dofile(cache_file)
       end
-      -- Use default devicons without override
-      return { default = true }
+      return { override = require "nvchad.icons.devicons" }
     end,
   },
 

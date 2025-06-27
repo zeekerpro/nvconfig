@@ -7,15 +7,8 @@ local M = {}
 
 ---@type HLTable
 M.override = {
-  -- Match terminal background color
-  Normal = {
-    bg = "#141b26",
-    fg = "white",
-  },
-  NormalNC = {
-    bg = "#141b26",
-    fg = "white",
-  },
+  -- Don't override Normal here - let transparency work
+  -- Background is handled by autocmd in options.lua
   CursorLine = {
     bg = "#1a2332",  -- Slightly lighter than terminal bg
   },
@@ -47,16 +40,15 @@ M.override = {
     bg = "#141b26",
     fg = "white",
   },
-  -- Sign column background
+  -- Transparent sign column and line numbers for transparency support
   SignColumn = {
-    bg = "#141b26",
+    bg = "NONE",
   },
-  -- Line number background
   LineNrAbove = {
-    bg = "#141b26",
+    bg = "NONE", 
   },
   LineNrBelow = {
-    bg = "#141b26",
+    bg = "NONE",
   },
 }
 
@@ -89,9 +81,9 @@ M.add = {
     fg = "white",
     bold = true,
   },
-  -- Optimize nvim-tree colors and icons
+  -- NvimTree with transparency support
   NvimTreeNormal = {
-    bg = "#141b26",  -- Match terminal background
+    bg = "NONE",  -- Let it be transparent
     fg = "white",
   },
   NvimTreeFolderIcon = {
@@ -108,7 +100,7 @@ M.add = {
   },
   NvimTreeWinSeparator = {
     fg = "#1a2332",
-    bg = "#141b26",
+    bg = "NONE",
   },
 }
 

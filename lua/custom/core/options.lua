@@ -1,10 +1,46 @@
 local opt = vim.opt
+local o = vim.o
 local g = vim.g
 
 -- Leader key is set in init.lua
 
 -- GitHub Copilot setting
 g.copilot_assume_mapped = true
+
+-- Enhanced visual options (from nvchad/options.lua customizations)
+-- Enable true colors for better color consistency
+o.termguicolors = true
+
+-- Smart background handling for transparency
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
+  callback = function()
+    -- Check if transparency is enabled
+    local config = require("core.utils").load_config()
+    if config.ui and config.ui.transparency then
+      -- When transparency is enabled, don't set background
+      vim.api.nvim_set_hl(0, "Normal", { fg = "#ffffff" })
+      vim.api.nvim_set_hl(0, "NormalNC", { fg = "#ffffff" })
+    else
+      -- When transparency is disabled, set background color
+      vim.api.nvim_set_hl(0, "Normal", { bg = "#141b26", fg = "#ffffff" })
+      vim.api.nvim_set_hl(0, "NormalNC", { bg = "#141b26", fg = "#ffffff" })
+    end
+  end,
+})
+
+-- Better visual feedback
+o.cmdheight = 1
+o.conceallevel = 0
+o.pumheight = 10
+o.showtabline = 2
+o.smarttab = true
+o.wrap = false
+
+-- Enhanced visual elements
+o.relativenumber = false
+o.scrolloff = 8
+o.sidescrolloff = 8
 
 -- Auto-delete trailing whitespace on save
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {

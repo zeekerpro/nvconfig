@@ -11,7 +11,7 @@ M.ui = {
   hl_override = highlights.override,
   hl_add = highlights.add,
 
-  transparency = false, -- Disable transparency for better color consistency
+  transparency = true, -- Enable transparency for see-through effect
   
   -- Enhanced statusline
   statusline = {

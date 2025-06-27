@@ -1,5 +1,18 @@
 -- Custom plugins configuration
 return {
+  -- Override nvim-web-devicons to use default colors
+  {
+    "nvim-tree/nvim-web-devicons",
+    opts = function()
+      local cache_file = vim.g.base46_cache .. "devicons"
+      if vim.loop.fs_stat(cache_file) then
+        dofile(cache_file)
+      end
+      -- Use default devicons without override to get colors
+      return { default = true }
+    end,
+  },
+  
   -- VSCode-like buffer tabs
   {
     "akinsho/bufferline.nvim",
@@ -9,6 +22,7 @@ return {
       return require "custom.configs.bufferline"
     end,
   },
+  
   -- Override nvim-tree with optimized icons
   {
     "nvim-tree/nvim-tree.lua",

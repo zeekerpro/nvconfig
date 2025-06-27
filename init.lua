@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 require "nvchad.options"
 require "nvchad.autocmds"
 
--- Load custom configuration
+-- Load custom configuration early
 pcall(require, "custom")
 
 -- Setup lazy.nvim
@@ -71,30 +71,6 @@ require("lazy").setup("nvchad.plugins", {
 vim.schedule(function()
   require "nvchad.mappings"
   
-  -- Initialize theme with better loading
-  local function setup_theme()
-    -- Load user config first
-    local config = require("core.utils").load_config()
-    
-    -- Try to load base46 theme system
-    local theme_loaded = pcall(function()
-      local base46 = require("base46")
-      base46.load_theme(config.ui.theme)
-      base46.load_all_highlights()
-    end)
-    
-    if not theme_loaded then
-      -- Fallback to a good default colorscheme
-      local fallback_schemes = { "habamax", "slate", "desert", "default" }
-      for _, scheme in ipairs(fallback_schemes) do
-        if pcall(vim.cmd, "colorscheme " .. scheme) then
-          break
-        end
-      end
-    end
-  end
-  
-  setup_theme()
-  
-  -- Bufferline will be loaded automatically by lazy.nvim
+  -- Load custom post-init (theme, additional setup)
+  pcall(require, "custom.post_init")
 end)
