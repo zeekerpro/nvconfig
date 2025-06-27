@@ -15,7 +15,19 @@ return {
   },
   view = {
     width = 30,
+    adaptive_size = true,
+    centralize_selection = true,
     preserve_window_proportions = true,
+  },
+  
+  actions = {
+    open_file = {
+      resize_window = true,
+    },
+    expand_all = {
+      max_folder_discovery = 300,
+      exclude = { ".git", "target", "build" },
+    },
   },
   
   -- Custom key mappings
