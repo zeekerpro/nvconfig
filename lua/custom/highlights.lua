@@ -16,10 +16,36 @@ M.override = {
     italic = true,
     fg = "light_grey",
   },
-  -- Better visual separators
+  -- Colorful statusline - override NvChad's vscode_colored theme
   StatusLine = {
-    bg = "#0f1419",  -- Darker than terminal bg
-    fg = "light_grey",
+    bg = "#21262D",
+    fg = "#F0F6FC",
+  },
+  -- NvChad vscode_colored statusline colors
+  St_NormalMode = {
+    fg = "#21262D",
+    bg = "#58A6FF",
+    bold = true,
+  },
+  St_InsertMode = {
+    fg = "#21262D", 
+    bg = "#7EE787",
+    bold = true,
+  },
+  St_VisualMode = {
+    fg = "#21262D",
+    bg = "#D29922", 
+    bold = true,
+  },
+  St_CommandMode = {
+    fg = "#21262D",
+    bg = "#F85149",
+    bold = true,
+  },
+  St_TerminalMode = {
+    fg = "#21262D",
+    bg = "#79C0FF",
+    bold = true,
   },
   -- Improve fold colors
   Folded = {

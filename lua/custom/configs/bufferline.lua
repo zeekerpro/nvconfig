@@ -59,62 +59,93 @@ return {
       bg = "#141b26", -- Match terminal background
     },
     background = {
-      fg = "#6b7280",
-      bg = "#0f1419",
+      fg = "#8B949E",
+      bg = "#21262D",
     },
     buffer_selected = {
-      fg = "#ffffff",
-      bg = "#1a2332",
+      fg = "#F0F6FC",
+      bg = "#388BFD",
       bold = true,
       italic = false,
     },
     buffer_visible = {
-      fg = "#9ca3af",
-      bg = "#111827",
+      fg = "#C9D1D9",
+      bg = "#30363D",
     },
     close_button = {
-      fg = "#6b7280",
-      bg = "#0f1419",
+      fg = "#8B949E",
+      bg = "#21262D",
     },
     close_button_visible = {
-      fg = "#9ca3af",
-      bg = "#111827",
+      fg = "#C9D1D9",
+      bg = "#30363D",
     },
     close_button_selected = {
-      fg = "#ef4444",
-      bg = "#1a2332",
+      fg = "#F85149",
+      bg = "#388BFD",
+      bold = true,
     },
     tab_close = {
-      fg = "#ef4444",
+      fg = "#F85149",
       bg = "#141b26",
     },
     indicator_selected = {
-      fg = "#3b82f6",
-      bg = "#1a2332",
+      fg = "#58A6FF",
+      bg = "#388BFD",
     },
     modified = {
-      fg = "#f59e0b",
-      bg = "#0f1419",
+      fg = "#D29922",
+      bg = "#21262D",
     },
     modified_visible = {
-      fg = "#f59e0b",
-      bg = "#111827",
+      fg = "#F2CC60",
+      bg = "#30363D",
     },
     modified_selected = {
-      fg = "#10b981",
-      bg = "#1a2332",
+      fg = "#7EE787",
+      bg = "#388BFD",
+      bold = true,
     },
     separator = {
       fg = "#141b26",
-      bg = "#0f1419",
+      bg = "#21262D",
     },
     separator_selected = {
       fg = "#141b26",
-      bg = "#1a2332",
+      bg = "#388BFD",
     },
     separator_visible = {
       fg = "#141b26",
-      bg = "#111827",
+      bg = "#30363D",
+    },
+    -- Additional colorful highlights
+    duplicate_selected = {
+      fg = "#F0F6FC",
+      bg = "#388BFD",
+      italic = true,
+    },
+    duplicate_visible = {
+      fg = "#C9D1D9",
+      bg = "#30363D",
+      italic = true,
+    },
+    duplicate = {
+      fg = "#8B949E",
+      bg = "#21262D",
+      italic = true,
+    },
+    numbers = {
+      fg = "#79C0FF",
+      bg = "#21262D",
+    },
+    numbers_visible = {
+      fg = "#79C0FF",
+      bg = "#30363D",
+    },
+    numbers_selected = {
+      fg = "#F0F6FC",
+      bg = "#388BFD",
+      bold = true,
     },
   },
 }
