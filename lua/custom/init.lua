@@ -9,3 +9,6 @@ require "custom.core.options"
 -- Setup custom UI to replace NvChad/ui
 require("custom.configs.ui").setup()
 
+-- Force apply custom highlights
+require("custom.configs.force_highlights").setup()
+

@@ -14,7 +14,48 @@ M.override = {
   },
   Comment = {
     italic = true,
-    fg = "light_grey",
+    fg = "#89b4fa", -- Brighter blue for comments
+  },
+  
+  -- Enhanced syntax highlighting for more vibrant colors
+  Keyword = {
+    fg = "#cba6f7", -- Purple for keywords
+    bold = true,
+  },
+  Function = {
+    fg = "#89b4fa", -- Blue for functions
+    bold = true,
+  },
+  String = {
+    fg = "#a6e3a1", -- Green for strings
+  },
+  Number = {
+    fg = "#fab387", -- Orange for numbers
+  },
+  Boolean = {
+    fg = "#f38ba8", -- Pink for booleans
+  },
+  Type = {
+    fg = "#f9e2af", -- Yellow for types
+    bold = true,
+  },
+  Constant = {
+    fg = "#fab387", -- Orange for constants
+  },
+  Variable = {
+    fg = "#cdd6f4", -- Light blue for variables
+  },
+  Operator = {
+    fg = "#89dceb", -- Cyan for operators
+  },
+  Special = {
+    fg = "#f5c2e7", -- Light pink for special chars
+  },
+  PreProc = {
+    fg = "#94e2d5", -- Teal for preprocessor
+  },
+  Identifier = {
+    fg = "#cdd6f4", -- Light blue for identifiers
   },
   -- Colorful statusline - override NvChad's vscode_colored theme
   StatusLine = {
@@ -81,6 +122,37 @@ M.override = {
 ---@type HLTable
 M.add = {
   NvimTreeOpenedFolderName = { fg = "green", bold = true },
+  
+  -- TreeSitter highlight groups for more vibrant syntax highlighting
+  ["@keyword"] = { fg = "#cba6f7", bold = true },
+  ["@function"] = { fg = "#89b4fa", bold = true },
+  ["@function.call"] = { fg = "#89b4fa" },
+  ["@method"] = { fg = "#89b4fa", bold = true },
+  ["@method.call"] = { fg = "#89b4fa" },
+  ["@string"] = { fg = "#a6e3a1" },
+  ["@string.regex"] = { fg = "#f9e2af" },
+  ["@number"] = { fg = "#fab387" },
+  ["@boolean"] = { fg = "#f38ba8" },
+  ["@type"] = { fg = "#f9e2af", bold = true },
+  ["@type.builtin"] = { fg = "#f9e2af" },
+  ["@constant"] = { fg = "#fab387" },
+  ["@constant.builtin"] = { fg = "#fab387", bold = true },
+  ["@variable"] = { fg = "#cdd6f4" },
+  ["@variable.builtin"] = { fg = "#f38ba8" },
+  ["@operator"] = { fg = "#89dceb" },
+  ["@punctuation"] = { fg = "#bac2de" },
+  ["@punctuation.bracket"] = { fg = "#89dceb" },
+  ["@comment"] = { fg = "#89b4fa", italic = true },
+  ["@tag"] = { fg = "#f38ba8" },
+  ["@tag.attribute"] = { fg = "#f9e2af" },
+  ["@property"] = { fg = "#89dceb" },
+  ["@parameter"] = { fg = "#fab387", italic = true },
+  ["@field"] = { fg = "#89dceb" },
+  ["@namespace"] = { fg = "#cba6f7" },
+  ["@include"] = { fg = "#94e2d5" },
+  ["@conditional"] = { fg = "#cba6f7", bold = true },
+  ["@repeat"] = { fg = "#cba6f7", bold = true },
+  ["@exception"] = { fg = "#f38ba8", bold = true },
   -- Enhanced floating window colors
   NormalFloat = {
     bg = "#0f1419",  -- Darker than terminal bg for contrast
