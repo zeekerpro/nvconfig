@@ -19,7 +19,7 @@ return {
     centralize_selection = true,
     preserve_window_proportions = true,
   },
-  
+
   actions = {
     open_file = {
       resize_window = true,
@@ -29,27 +29,27 @@ return {
       exclude = { ".git", "target", "build" },
     },
   },
-  
+
   -- Custom key mappings
   on_attach = function(bufnr)
     local api = require('nvim-tree.api')
-    
+
     -- Default mappings
     api.config.mappings.default_on_attach(bufnr)
-    
+
     -- Custom mappings
     local function opts(desc)
       return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
     end
-    
+
     -- Override h and l mappings (no need to delete first)
     vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts('Close Directory'))
     vim.keymap.set('n', 'l', api.node.open.edit, opts('Open'))
   end,
   renderer = {
-    root_folder_label = ":t",
+    root_folder_label = false,
     highlight_git = true,
-    indent_markers = { 
+    indent_markers = {
       enable = true,
       inline_arrows = true,
     },
