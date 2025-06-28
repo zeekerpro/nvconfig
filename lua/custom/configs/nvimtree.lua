@@ -47,7 +47,7 @@ return {
     vim.keymap.set('n', 'l', api.node.open.edit, opts('Open'))
   end,
   renderer = {
-    root_folder_label = false,
+    root_folder_label = ":t",
     highlight_git = true,
     indent_markers = { 
       enable = true,
