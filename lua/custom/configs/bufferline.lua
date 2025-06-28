@@ -9,16 +9,16 @@ return {
     left_mouse_command = "buffer %d",
     middle_mouse_command = nil,
     
-    -- Tab styling
+    -- Tab styling with smaller icons
     indicator = {
-      icon = "▎", -- this should be omitted if indicator style is not 'icon'
+      icon = "▏", -- thinner indicator line
       style = "icon",
     },
-    buffer_close_icon = "󰅖",
-    modified_icon = "●",
-    close_icon = "",
-    left_trunc_marker = "",
-    right_trunc_marker = "",
+    buffer_close_icon = "×",
+    modified_icon = "•",
+    close_icon = "×",
+    left_trunc_marker = "‹",
+    right_trunc_marker = "›",
     
     -- Layout
     max_name_length = 30,
@@ -63,8 +63,8 @@ return {
       bg = "#21262D",
     },
     buffer_selected = {
-      fg = "#F0F6FC",
-      bg = "#388BFD",
+      fg = "#cdd6f4",
+      bg = "#1e1e2e", -- Match editor background
       bold = true,
       italic = false,
     },
@@ -81,8 +81,8 @@ return {
       bg = "#30363D",
     },
     close_button_selected = {
-      fg = "#F85149",
-      bg = "#388BFD",
+      fg = "#f38ba8",
+      bg = "#1e1e2e", -- Match editor background
       bold = true,
     },
     tab_close = {
@@ -90,8 +90,8 @@ return {
       bg = "#141b26",
     },
     indicator_selected = {
-      fg = "#58A6FF",
-      bg = "#388BFD",
+      fg = "#89b4fa",
+      bg = "#1e1e2e", -- Match editor background
     },
     modified = {
       fg = "#D29922",
@@ -102,8 +102,8 @@ return {
       bg = "#30363D",
     },
     modified_selected = {
-      fg = "#7EE787",
-      bg = "#388BFD",
+      fg = "#a6e3a1",
+      bg = "#1e1e2e", -- Match editor background
       bold = true,
     },
     separator = {
@@ -111,8 +111,8 @@ return {
       bg = "#21262D",
     },
     separator_selected = {
-      fg = "#141b26",
-      bg = "#388BFD",
+      fg = "#1e1e2e",
+      bg = "#1e1e2e", -- Match editor background
     },
     separator_visible = {
       fg = "#141b26",
@@ -120,8 +120,8 @@ return {
     },
     -- Additional colorful highlights
     duplicate_selected = {
-      fg = "#F0F6FC",
-      bg = "#388BFD",
+      fg = "#cdd6f4",
+      bg = "#1e1e2e", -- Match editor background
       italic = true,
     },
     duplicate_visible = {
@@ -143,8 +143,8 @@ return {
       bg = "#30363D",
     },
     numbers_selected = {
-      fg = "#F0F6FC",
-      bg = "#388BFD",
+      fg = "#cdd6f4",
+      bg = "#1e1e2e", -- Match editor background
       bold = true,
     },
   },

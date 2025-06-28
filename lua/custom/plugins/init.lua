@@ -245,5 +245,8 @@ return {
     "NvChad/ui",
     enabled = false,
   },
+  
+  -- Load lualine for enhanced statusline
+  require("custom.plugins.lualine"),
 
 }
