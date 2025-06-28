@@ -6,3 +6,6 @@ vim.g.mapleader = ";"
 -- Load custom options
 require "custom.core.options"
 
+-- Setup custom UI to replace NvChad/ui
+require("custom.configs.ui").setup()
+

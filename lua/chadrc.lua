@@ -19,11 +19,6 @@ M.ui = {
     separator_style = "round",
   },
   
-  -- Disable NvChad tabufline, use bufferline.nvim instead
-  tabufline = {
-    enabled = false,
-    show_numbers = false,
-  },
   
   -- Telescope styling
   telescope = {
@@ -38,6 +33,7 @@ M.ui = {
     border_color = "grey_fg",
     selected_item_bg = "colored",
   },
+  
 }
 
 return M

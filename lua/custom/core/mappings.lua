@@ -8,6 +8,8 @@ M.disabled = {
     ["<C-n>"] = "",
     ["<leader>h"] = "",
     ["<leader>v"] = "",
+    ["<leader>i"] = "", -- Disable terminal mappings
+    ["<leader>x"] = "", -- Disable default buffer close
     ["<leader>tt"] = "",
     ["<leader>pt"] = "",
     ["<leader>ff"] = "",
@@ -41,6 +43,9 @@ M.disabled = {
   },
   t = {
     ["<C-x>"] = "",
+    ["<A-h>"] = "", -- Disable terminal toggle mappings
+    ["<A-v>"] = "",
+    ["<A-i>"] = "",
   },
 }
 
@@ -62,8 +67,18 @@ M.bufferline = {
     ["<TAB>"] = { "<cmd>BufferLineCycleNext<CR>", "  goto next buffer" },
     ["<S-Tab>"] = { "<cmd>BufferLineCyclePrev<CR>", "  goto prev buffer" },
 
-    -- Close buffer with Cmd+W (macOS style)
-    ["<D-w>"] = { "<cmd>bdelete<CR>", "   close buffer" },
+    -- Close buffer with custom function to avoid tabufline conflicts
+    ["<D-w>"] = { 
+      function()
+        local buf = vim.api.nvim_get_current_buf()
+        if vim.bo[buf].modified then
+          vim.cmd("confirm bdelete")
+        else
+          vim.cmd("bdelete")
+        end
+      end, 
+      "   close buffer" 
+    },
 
     -- Pick buffers via telescope
     ["<Bslash>"] = { "<cmd> Telescope buffers <CR>", "  Pick buffer" },

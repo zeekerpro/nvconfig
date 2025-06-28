@@ -223,18 +223,26 @@ return {
     },
   },
 
-  -- Augment.vim for AI assistance
-  {
-    "augmentcode/augment.vim",
-    lazy = false,
-    keys = {
-      { "<Space>c", "<cmd>Augment chat<cr>", desc = "augmentcode" }
-    },
-  },
 
-  -- Disable nvterm
+  
+  -- Disable core indent-blankline and configure v3
   {
-    "NvChad/nvterm",
+    "lukas-reineke/indent-blankline.nvim",
+    event = "User FilePost",
+    main = "ibl",
+    config = function()
+      local cache_file = vim.g.base46_cache .. "blankline"
+      if vim.loop.fs_stat(cache_file) then
+        dofile(cache_file)
+      end
+      
+      require("ibl").setup(require "custom.configs.blankline")
+    end,
+  },
+  
+  -- Disable NvChad/ui completely
+  {
+    "NvChad/ui",
     enabled = false,
   },
 
