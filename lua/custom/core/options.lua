@@ -11,8 +11,12 @@ g.copilot_assume_mapped = true
 -- Enable true colors for better color consistency
 o.termguicolors = true
 
--- Smart background handling for transparency
+-- Consolidated autocmds for better performance
+local autocmd_group = vim.api.nvim_create_augroup("CustomOptions", { clear = true })
+
+-- Smart background handling for transparency and auto-cleanup
 vim.api.nvim_create_autocmd("ColorScheme", {
+  group = autocmd_group,
   pattern = "*",
   callback = function()
     -- Check if transparency is enabled
@@ -29,6 +33,13 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   end,
 })
 
+-- Auto-delete trailing whitespace on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = autocmd_group,
+  pattern = "*",
+  command = [[%s/\s\+$//e]],
+})
+
 -- Better visual feedback
 o.cmdheight = 1
 o.conceallevel = 0
@@ -41,12 +52,6 @@ o.wrap = false
 o.relativenumber = false
 o.scrolloff = 8
 o.sidescrolloff = 8
-
--- Auto-delete trailing whitespace on save
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  pattern = { "*" },
-  command = [[%s/\s\+$//e]],
-})
 
 -- Code folding
 opt.foldmethod = "indent"

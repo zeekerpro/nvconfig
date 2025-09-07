@@ -91,16 +91,16 @@ M.override = {
   -- Improve fold colors
   Folded = {
     bg = "#1a2332",
-    fg = "light_grey",
+    fg = "#bac2de", -- Light grey
   },
   -- Better search highlighting
   Search = {
-    bg = "sun",
-    fg = "black",
+    bg = "#f9e2af", -- Yellow for search
+    fg = "#1e1e2e",
   },
   IncSearch = {
-    bg = "nord_blue",
-    fg = "black",
+    bg = "#89b4fa", -- Blue for incremental search
+    fg = "#1e1e2e",
   },
   -- Terminal colors consistency
   Terminal = {
@@ -156,45 +156,45 @@ M.add = {
   -- Enhanced floating window colors
   NormalFloat = {
     bg = "#0f1419",  -- Darker than terminal bg for contrast
-    fg = "white",
+    fg = "#cdd6f4", -- White
   },
   FloatBorder = {
     bg = "#0f1419",
-    fg = "grey_fg",
+    fg = "#bac2de", -- Grey foreground
   },
   -- Popup menu colors
   Pmenu = {
     bg = "#0f1419",
-    fg = "white",
+    fg = "#cdd6f4", -- White
   },
   PmenuSel = {
     bg = "#1a2332",
-    fg = "white",
+    fg = "#cdd6f4", -- White
   },
   -- Better line numbers
   LineNr = {
-    fg = "grey",
+    fg = "#6c7086", -- Grey
   },
   CursorLineNr = {
-    fg = "white",
+    fg = "#cdd6f4", -- White
     bold = true,
   },
   -- NvimTree with transparency support
   NvimTreeNormal = {
     bg = "NONE",  -- Let it be transparent
-    fg = "white",
+    fg = "#cdd6f4", -- White
   },
   NvimTreeFolderIcon = {
-    fg = "blue",
+    fg = "#89b4fa", -- Blue
   },
   NvimTreeFolderArrowClosed = {
-    fg = "grey_fg",
+    fg = "#bac2de", -- Grey foreground
   },
   NvimTreeFolderArrowOpen = {
-    fg = "grey_fg",
+    fg = "#bac2de", -- Grey foreground
   },
   NvimTreeIndentMarker = {
-    fg = "grey",
+    fg = "#6c7086", -- Grey
   },
   NvimTreeWinSeparator = {
     fg = "#1a2332",

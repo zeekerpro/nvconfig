@@ -68,7 +68,7 @@ M.bufferline = {
     ["<S-Tab>"] = { "<cmd>BufferLineCyclePrev<CR>", "  goto prev buffer" },
 
     -- Close buffer with custom function to avoid tabufline conflicts
-    ["<D-w>"] = { 
+    ["<leader>x"] = { 
       function()
         local buf = vim.api.nvim_get_current_buf()
         if vim.bo[buf].modified then
@@ -132,7 +132,7 @@ M.lspconfig = {
 
     ["<Space>rn"] = {
       function()
-        require("nvchad.renamer").open()
+        vim.lsp.buf.rename()
       end,
       "   lsp rename",
     },

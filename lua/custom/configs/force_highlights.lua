@@ -1,25 +1,23 @@
--- Force apply custom highlights
+-- Simplified highlight management (integrated with post_init.lua)
 local M = {}
 
 M.apply_highlights = function()
-  local highlights = require("custom.highlights")
+  local highlights_ok, highlights = pcall(require, "custom.highlights")
+  if not highlights_ok then return end
   
   -- Apply override highlights
-  for group, settings in pairs(highlights.override) do
+  for group, settings in pairs(highlights.override or {}) do
     vim.api.nvim_set_hl(0, group, settings)
   end
   
   -- Apply additional highlights
-  for group, settings in pairs(highlights.add) do
+  for group, settings in pairs(highlights.add or {}) do
     vim.api.nvim_set_hl(0, group, settings)
   end
 end
 
 M.setup = function()
-  -- Apply highlights immediately
-  M.apply_highlights()
-  
-  -- Reapply after colorscheme changes
+  -- Only reapply on colorscheme changes (initial load handled by post_init.lua)
   vim.api.nvim_create_autocmd("ColorScheme", {
     callback = function()
       vim.schedule(function()
@@ -27,21 +25,6 @@ M.setup = function()
       end)
     end,
   })
-  
-  -- Also apply after plugins are loaded
-  vim.api.nvim_create_autocmd("User", {
-    pattern = "LazyDone",
-    callback = function()
-      vim.schedule(function()
-        M.apply_highlights()
-      end)
-    end,
-  })
-  
-  -- Force apply after a delay to ensure everything is loaded
-  vim.defer_fn(function()
-    M.apply_highlights()
-  end, 1000)
 end
 
 return M

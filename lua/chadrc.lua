@@ -13,13 +13,6 @@ M.ui = {
 
   transparency = true, -- Enable transparency for see-through effect
   
-  -- Enhanced statusline
-  statusline = {
-    theme = "vscode_colored",
-    separator_style = "round",
-  },
-  
-  
   -- Telescope styling
   telescope = {
     style = "bordered",
