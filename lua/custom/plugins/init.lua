@@ -62,7 +62,8 @@ return {
   {
     "simrat39/symbols-outline.nvim",
     cmd = { "SymbolsOutline", "SymbolsOutlineOpen", "SymbolsOutlineClose" },
-    opts = {
+    config = function()
+      require("symbols-outline").setup({
       highlight_hovered_item = true,
       show_guides = true,
       auto_preview = false,
@@ -124,7 +125,8 @@ return {
         Component = { icon = "", hl = "@function" },
         Fragment = { icon = "", hl = "@constant" },
       },
-    },
+      })
+    end,
   },
 
   -- Rails support

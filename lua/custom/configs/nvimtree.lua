@@ -80,12 +80,12 @@ return {
           symlink_open = "",
         },
         git = {
-          unstaged = "✗",
+          unstaged = "•",
           staged = "✓",
           unmerged = "",
           renamed = "➜",
           untracked = "★",
-          deleted = "",
+          deleted = "✗",
           ignored = "◌"
         },
       },

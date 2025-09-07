@@ -4,21 +4,21 @@ local M = {}
 -- Disable default mappings
 M.disabled = {
   n = {
-    ["<leader>e"] = "",
-    ["<C-n>"] = "",
+    ["<leader>e"] = "",  -- Disable NvChad default, use <Space>e
+    ["<C-n>"] = "",      -- Disable NvChad default, use <Space>e
     ["<leader>h"] = "",
     ["<leader>v"] = "",
     ["<leader>i"] = "", -- Disable terminal mappings
     ["<leader>x"] = "", -- Disable default buffer close
     ["<leader>tt"] = "",
     ["<leader>pt"] = "",
-    ["<leader>ff"] = "",
-    ["<leader>fa"] = "",
-    ["<leader>fw"] = "",
-    ["<leader>fb"] = "",
-    ["<leader>fm"] = "",
-    ["<leader>fh"] = "",
-    ["<leader>fo"] = "",
+    ["<leader>ff"] = "",  -- Use <leader>f instead
+    ["<leader>fa"] = "",  -- Use <leader>a instead  
+    ["<leader>fw"] = "",  -- Use <leader>g instead
+    ["<leader>fb"] = "",  -- Use <leader>b instead
+    ["<leader>fm"] = "",  -- Use <Space>f instead
+    ["<leader>fh"] = "",  -- Use <Space>th instead
+    ["<leader>fo"] = "",  -- Use <leader>o instead
     ["<leader>tk"] = "",
     ["<leader>cm"] = "",
     ["<leader>gt"] = "",
@@ -28,10 +28,10 @@ M.disabled = {
     ["<leader>ra"] = "",
     ["<leader>n"] = "",
     ["<leader>uu"] = "",
-    ["gD"] = "",
-    ["gd"] = "",
-    ["gr"] = "",
-    ["gi"] = "",
+    -- ["gD"] = "",
+    -- ["gd"] = "",
+    -- ["gr"] = "",
+    -- ["gi"] = "",
   },
   i = {
     ["<C-b>"] = "",
@@ -118,43 +118,10 @@ M.nvimtree = {
   },
 }
 
--- LSP mappings
+-- LSP mappings (keeping only essential custom ones, standard gd/gr/gi work too)
 M.lspconfig = {
   n = {
-    ["<leader>D"] = {
-      function()
-        vim.lsp.buf.declaration()
-      end,
-      "   lsp declaration",
-    },
-
-    ["<leader>d"] = {
-      function()
-        vim.lsp.buf.definition()
-      end,
-      "   lsp definition",
-    },
-
-    ["<leader>i"] = {
-      function()
-        vim.lsp.buf.implementation()
-      end,
-      "   lsp implementation",
-    },
-
-    ["<leader>r"] = {
-      function()
-        vim.lsp.buf.references()
-      end,
-      "   lsp references",
-    },
-
-    ["<leader>t"] = {
-      function()
-        vim.lsp.buf.type_definition()
-      end,
-      "   lsp definition type",
-    },
+    -- Keep standard LSP keys: gd, gD, gr, gi work automatically
 
     ["K"] = {
       function()
@@ -163,28 +130,21 @@ M.lspconfig = {
       "   lsp hover",
     },
 
-    ["<leader>h"] = {
-      function()
-        vim.lsp.buf.signature_help()
-      end,
-      "   lsp signature_help",
-    },
-
-    ["<Space>a"] = {
+    ["<Space>rn"] = {
       function()
         require("nvchad.renamer").open()
       end,
       "   lsp rename",
     },
 
-    ["<Space>x"] = {
+    ["<Space>ca"] = {
       function()
         vim.lsp.buf.code_action()
       end,
       "   lsp code_action",
     },
 
-    ["<Space>f"] = {
+    ["<Space>fm"] = {
       function()
         vim.lsp.buf.format { async = true }
       end,
