@@ -70,6 +70,12 @@ M.bufferline = {
     -- Close buffer with custom function to avoid tabufline conflicts
     ["<leader>x"] = { 
       function()
+        -- First close outline if it's open
+        pcall(function()
+          vim.cmd("OutlineClose")
+        end)
+        
+        -- Then close the buffer
         local buf = vim.api.nvim_get_current_buf()
         if vim.bo[buf].modified then
           vim.cmd("confirm bdelete")
