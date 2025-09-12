@@ -40,7 +40,7 @@ o.conceallevel = 0
 o.pumheight = 10
 o.showtabline = 2
 o.smarttab = true
-o.wrap = false
+o.wrap = true
 
 -- Enhanced visual elements
 o.relativenumber = false
