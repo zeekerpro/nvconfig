@@ -18,7 +18,8 @@
       "Bash(echo $TERM)",
       "Bash(rg:*)",
       "Bash(git checkout:*)",
-      "Bash(lua:*)"
+      "Bash(lua:*)",
+      "Read(//Users/zeeker/.local/share/nvim/lazy/outline.nvim/lua/**)"
     ],
     "deny": []
   }

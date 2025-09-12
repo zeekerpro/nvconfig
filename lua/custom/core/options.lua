@@ -33,12 +33,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   end,
 })
 
--- Auto-delete trailing whitespace on save
-vim.api.nvim_create_autocmd("BufWritePre", {
-  group = autocmd_group,
-  pattern = "*",
-  command = [[%s/\s\+$//e]],
-})
 
 -- Better visual feedback
 o.cmdheight = 1

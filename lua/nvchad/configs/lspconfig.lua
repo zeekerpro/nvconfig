@@ -86,12 +86,36 @@ M.defaults = function()
   if vim.lsp.config then
     vim.lsp.config("*", { capabilities = M.capabilities, on_init = M.on_init })
     vim.lsp.config("lua_ls", { settings = lua_lsp_settings })
+    vim.lsp.config("ts_ls", {})
+    vim.lsp.config("solargraph", {})
+    vim.lsp.config("pyright", {})
     vim.lsp.enable "lua_ls"
+    vim.lsp.enable "ts_ls"
+    vim.lsp.enable "solargraph"
+    vim.lsp.enable "pyright"
   else
     require("lspconfig").lua_ls.setup {
       capabilities = M.capabilities,
       on_init = M.on_init,
       settings = lua_lsp_settings,
+    }
+    
+    -- TypeScript/JavaScript LSP
+    require("lspconfig").ts_ls.setup {
+      capabilities = M.capabilities,
+      on_init = M.on_init,
+    }
+    
+    -- Ruby LSP
+    require("lspconfig").solargraph.setup {
+      capabilities = M.capabilities,
+      on_init = M.on_init,
+    }
+    
+    -- Python LSP
+    require("lspconfig").pyright.setup {
+      capabilities = M.capabilities,
+      on_init = M.on_init,
     }
   end
 end

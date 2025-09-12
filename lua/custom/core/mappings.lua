@@ -104,10 +104,10 @@ M.comment = {
   },
 }
 
--- Symbols outline
-M.symbols_outline = {
+-- Modern outline (symbols outline replacement)
+M.outline = {
   n = {
-    ["<Space>o"] = { "<cmd> SymbolsOutline <CR>", "ﴴ   symbols outline" },
+    ["<Space>o"] = { "<cmd> Outline <CR>", "ﴴ   symbols outline" },
   },
 }
 
