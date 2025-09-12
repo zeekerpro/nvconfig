@@ -22,8 +22,14 @@ end
 
 -- disable semanticTokens
 M.on_init = function(client, _)
-  if client.supports_method "textDocument/semanticTokens" then
-    client.server_capabilities.semanticTokensProvider = nil
+  if vim.fn.has "nvim-0.11" ~= 1 then
+    if client.supports_method "textDocument/semanticTokens" then
+      client.server_capabilities.semanticTokensProvider = nil
+    end
+  else
+    if client:supports_method "textDocument/semanticTokens" then
+      client.server_capabilities.semanticTokensProvider = nil
+    end
   end
 end
 
@@ -63,6 +69,7 @@ M.defaults = function()
 
   local lua_lsp_settings = {
     Lua = {
+      runtime = { version = "LuaJIT" },
       workspace = {
         library = {
           vim.fn.expand "$VIMRUNTIME/lua",
