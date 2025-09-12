@@ -67,6 +67,9 @@ return {
     },
     config = function()
       require("outline").setup({
+        guides = {
+          enabled = false,
+        },
         outline_window = {
           position = 'right',
           width = 25,
@@ -79,6 +82,7 @@ return {
           show_relative_numbers = false,
           wrap = false,
           show_cursorline = true,
+          winhl = 'Normal:Normal,NormalNC:Normal,WinSeparator:WinSeparator',
         },
         outline_items = {
           show_symbol_details = true,

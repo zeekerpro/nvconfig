@@ -200,6 +200,11 @@ M.add = {
     fg = "#1a2332",
     bg = "NONE",
   },
+  -- Outline window separator
+  WinSeparator = {
+    fg = "#bac2de",
+    bg = "NONE",
+  },
 }
 
 return M

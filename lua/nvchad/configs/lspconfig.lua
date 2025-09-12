@@ -89,10 +89,12 @@ M.defaults = function()
     vim.lsp.config("ts_ls", {})
     vim.lsp.config("solargraph", {})
     vim.lsp.config("pyright", {})
+    vim.lsp.config("jsonls", {})
     vim.lsp.enable "lua_ls"
     vim.lsp.enable "ts_ls"
     vim.lsp.enable "solargraph"
     vim.lsp.enable "pyright"
+    vim.lsp.enable "jsonls"
   else
     require("lspconfig").lua_ls.setup {
       capabilities = M.capabilities,
@@ -114,6 +116,12 @@ M.defaults = function()
     
     -- Python LSP
     require("lspconfig").pyright.setup {
+      capabilities = M.capabilities,
+      on_init = M.on_init,
+    }
+    
+    -- JSON LSP
+    require("lspconfig").jsonls.setup {
       capabilities = M.capabilities,
       on_init = M.on_init,
     }
