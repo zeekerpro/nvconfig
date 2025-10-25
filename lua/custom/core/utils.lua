@@ -1,6 +1,17 @@
 -- Utility functions for custom mappings and operations
 local M = {}
 
+-- Load base46 cache file if it exists
+-- This reduces code duplication across multiple plugin configurations
+---@param cache_name string The name of the cache file (e.g., "devicons", "nvimtree")
+---@return nil
+M.load_cache = function(cache_name)
+  local cache_file = vim.g.base46_cache .. cache_name
+  if vim.loop.fs_stat(cache_file) then
+    dofile(cache_file)
+  end
+end
+
 -- Smart close buffer with the following behavior:
 -- 1. Close any associated auxiliary windows (like outline)
 -- 2. Check if the buffer has unsaved changes

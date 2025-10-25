@@ -4,10 +4,7 @@ return {
   {
     "nvim-tree/nvim-web-devicons",
     opts = function()
-      local cache_file = vim.g.base46_cache .. "devicons"
-      if vim.loop.fs_stat(cache_file) then
-        dofile(cache_file)
-      end
+      require("custom.core.utils").load_cache("devicons")
       -- Use default devicons without override to get colors
       return { default = true }
     end,
@@ -50,7 +47,7 @@ return {
   -- Automated session manager
   {
     "rmagatti/auto-session",
-    lazy = false,
+    event = "VimEnter",  -- Lazy load on VimEnter for better startup performance
     opts = {
       auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
       auto_session_use_git_branch = false,
@@ -198,35 +195,21 @@ return {
   },
 
   -- Flash.nvim for quick navigation
+  -- Keymaps are managed in custom/core/mappings.lua
   {
     "folke/flash.nvim",
     event = "VeryLazy",
     opts = {},
-    keys = {
-      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-    },
   },
 
   -- Yazi file manager
+  -- Keymaps are managed in custom/core/mappings.lua
   {
     "mikavilpas/yazi.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
     event = "VeryLazy",
-    keys = {
-      {
-        "<leader>-",
-        function()
-          require("yazi").yazi()
-        end,
-        desc = "Open the file manager",
-      },
-    },
     opts = {
       open_for_directories = false,
       floating_window_scaling_factor = 0.9,
@@ -235,6 +218,7 @@ return {
   },
 
   -- LazyGit integration
+  -- Keymaps are managed in custom/core/mappings.lua
   {
     "kdheepak/lazygit.nvim",
     lazy = true,
@@ -248,9 +232,6 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-    keys = {
-      { "<Space>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
-    },
   },
 
 
@@ -261,11 +242,7 @@ return {
     event = "User FilePost",
     main = "ibl",
     config = function()
-      local cache_file = vim.g.base46_cache .. "blankline"
-      if vim.loop.fs_stat(cache_file) then
-        dofile(cache_file)
-      end
-      
+      require("custom.core.utils").load_cache("blankline")
       require("ibl").setup(require "custom.configs.blankline")
     end,
   },

@@ -44,7 +44,6 @@ o.wrap = true
 
 -- Enhanced visual elements
 o.relativenumber = false
-o.scrolloff = 8
 o.sidescrolloff = 8
 
 -- Code folding

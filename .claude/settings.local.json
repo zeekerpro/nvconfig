@@ -19,7 +19,8 @@
       "Bash(rg:*)",
       "Bash(git checkout:*)",
       "Bash(lua:*)",
-      "Read(//Users/zeeker/.local/share/nvim/lazy/outline.nvim/lua/**)"
+      "Read(//Users/zeeker/.local/share/nvim/lazy/outline.nvim/lua/**)",
+      "Bash(awk:*)"
     ],
     "deny": []
   }

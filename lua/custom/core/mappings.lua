@@ -235,6 +235,82 @@ M.undotree = {
   }
 }
 
+-- Flash navigation
+M.flash = {
+  n = {
+    ["s"] = {
+      function()
+        require("flash").jump()
+      end,
+      "⚡ Flash jump"
+    },
+    ["S"] = {
+      function()
+        require("flash").treesitter()
+      end,
+      "⚡ Flash treesitter"
+    },
+  },
+  o = {
+    ["r"] = {
+      function()
+        require("flash").remote()
+      end,
+      "⚡ Remote flash"
+    },
+    ["R"] = {
+      function()
+        require("flash").treesitter_search()
+      end,
+      "⚡ Treesitter search"
+    },
+  },
+  x = {
+    ["s"] = {
+      function()
+        require("flash").jump()
+      end,
+      "⚡ Flash jump"
+    },
+    ["S"] = {
+      function()
+        require("flash").treesitter()
+      end,
+      "⚡ Flash treesitter"
+    },
+    ["R"] = {
+      function()
+        require("flash").treesitter_search()
+      end,
+      "⚡ Treesitter search"
+    },
+  },
+  c = {
+    ["<c-s>"] = {
+      function()
+        require("flash").toggle()
+      end,
+      "⚡ Toggle flash search"
+    },
+  },
+}
+
+-- File managers and Git
+M.tools = {
+  n = {
+    ["<leader>-"] = {
+      function()
+        require("yazi").yazi()
+      end,
+      "📁 Yazi file manager"
+    },
+    ["<Space>lg"] = {
+      "<cmd>LazyGit<cr>",
+      " LazyGit"
+    },
+  },
+}
+
 -- Extra mappings not registered in whichkey
 vim.keymap.set('x', '<', '<gv', { desc = 'Re-select blocks after indenting in visual/select mode' })
 vim.keymap.set('x', '>', '>gv|', { desc = 'Re-select blocks after indenting in visual/select mode' })

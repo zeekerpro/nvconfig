@@ -1,8 +1,5 @@
 -- Custom nvimtree configuration with optimized icons
-local cache_file = vim.g.base46_cache .. "nvimtree"
-if vim.loop.fs_stat(cache_file) then
-  dofile(cache_file)
-end
+require("custom.core.utils").load_cache("nvimtree")
 
 return {
   filters = { dotfiles = false },
