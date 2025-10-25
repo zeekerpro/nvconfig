@@ -59,12 +59,10 @@ return {
   },
 
   -- Modern symbols outline (replaces deprecated symbols-outline.nvim)
+  -- Keymaps are managed in custom/core/mappings.lua
   {
-    "hedyhli/outline.nvim", 
+    "hedyhli/outline.nvim",
     cmd = { "Outline", "OutlineOpen" },
-    keys = {
-      { "<Space>o", "<cmd>Outline<CR>", desc = "Toggle Outline" },
-    },
     config = function()
       require("outline").setup({
         guides = {

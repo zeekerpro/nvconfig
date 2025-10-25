@@ -31,31 +31,33 @@ return {
     end,
   },
 
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    event = "User FilePost",
-    config = function()
-      local cache_file = vim.g.base46_cache .. "blankline"
-      if vim.loop.fs_stat(cache_file) then
-        dofile(cache_file)
-      end
-
-      -- Use old version configuration since that's what's installed
-      local ok, indent_blankline = pcall(require, "indent_blankline")
-      if ok then
-        indent_blankline.setup({
-          char = "│",
-          show_trailing_blankline_indent = false,
-          show_first_indent_level = false,
-          use_treesitter = true,
-          show_current_context = true,
-          context_patterns = {
-            "class", "function", "method", "block", "list_literal", "selector", "^if", "^table", "if_statement", "while", "for"
-          }
-        })
-      end
-    end,
-  },
+  -- indent-blankline is configured in custom/plugins/init.lua with v3 API
+  -- Disabled here to avoid conflicts with the custom v3 configuration
+  -- {
+  --   "lukas-reineke/indent-blankline.nvim",
+  --   event = "User FilePost",
+  --   config = function()
+  --     local cache_file = vim.g.base46_cache .. "blankline"
+  --     if vim.loop.fs_stat(cache_file) then
+  --       dofile(cache_file)
+  --     end
+  --
+  --     -- Use old version configuration since that's what's installed
+  --     local ok, indent_blankline = pcall(require, "indent_blankline")
+  --     if ok then
+  --       indent_blankline.setup({
+  --         char = "│",
+  --         show_trailing_blankline_indent = false,
+  --         show_first_indent_level = false,
+  --         use_treesitter = true,
+  --         show_current_context = true,
+  --         context_patterns = {
+  --           "class", "function", "method", "block", "list_literal", "selector", "^if", "^table", "if_statement", "while", "for"
+  --         }
+  --       })
+  --     end
+  --   end,
+  -- },
 
   -- file managing , picker etc
   {

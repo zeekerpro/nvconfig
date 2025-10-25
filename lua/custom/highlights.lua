@@ -3,6 +3,11 @@
 -- Each highlight group can take a table with variables fg, bg, bold, italic, etc
 -- base30 variable names can also be used as colors
 
+local colors = require("custom.configs.colors")
+local c = colors.semantic
+local cp = colors.catppuccin
+local ts = colors.treesitter
+
 local M = {}
 
 ---@type HLTable
@@ -10,52 +15,52 @@ M.override = {
   -- Don't override Normal here - let transparency work
   -- Background is handled by autocmd in options.lua
   CursorLine = {
-    bg = "#1a2332",  -- Slightly lighter than terminal bg
+    bg = c.cursor_line,
   },
   Comment = {
     italic = true,
-    fg = "#89b4fa", -- Brighter blue for comments
+    fg = c.comment,
   },
-  
+
   -- Enhanced syntax highlighting for more vibrant colors
   Keyword = {
-    fg = "#cba6f7", -- Purple for keywords
+    fg = c.keyword,
     bold = true,
   },
   Function = {
-    fg = "#89b4fa", -- Blue for functions
+    fg = c.func,
     bold = true,
   },
   String = {
-    fg = "#a6e3a1", -- Green for strings
+    fg = c.string,
   },
   Number = {
-    fg = "#fab387", -- Orange for numbers
+    fg = c.number,
   },
   Boolean = {
-    fg = "#f38ba8", -- Pink for booleans
+    fg = c.bool,
   },
   Type = {
-    fg = "#f9e2af", -- Yellow for types
+    fg = c.type,
     bold = true,
   },
   Constant = {
-    fg = "#fab387", -- Orange for constants
+    fg = c.constant,
   },
   Variable = {
-    fg = "#cdd6f4", -- Light blue for variables
+    fg = c.variable,
   },
   Operator = {
-    fg = "#89dceb", -- Cyan for operators
+    fg = c.operator,
   },
   Special = {
-    fg = "#f5c2e7", -- Light pink for special chars
+    fg = cp.flamingo,
   },
   PreProc = {
-    fg = "#94e2d5", -- Teal for preprocessor
+    fg = cp.teal,
   },
   Identifier = {
-    fg = "#cdd6f4", -- Light blue for identifiers
+    fg = cp.text,
   },
   -- Colorful statusline - override NvChad's vscode_colored theme
   StatusLine = {
@@ -69,13 +74,13 @@ M.override = {
     bold = true,
   },
   St_InsertMode = {
-    fg = "#21262D", 
+    fg = "#21262D",
     bg = "#7EE787",
     bold = true,
   },
   St_VisualMode = {
     fg = "#21262D",
-    bg = "#D29922", 
+    bg = "#D29922",
     bold = true,
   },
   St_CommandMode = {
@@ -90,17 +95,17 @@ M.override = {
   },
   -- Improve fold colors
   Folded = {
-    bg = "#1a2332",
-    fg = "#bac2de", -- Light grey
+    bg = c.cursor_line,
+    fg = cp.subtext1,
   },
   -- Better search highlighting
   Search = {
-    bg = "#f9e2af", -- Yellow for search
-    fg = "#1e1e2e",
+    bg = cp.yellow,
+    fg = cp.base,
   },
   IncSearch = {
-    bg = "#89b4fa", -- Blue for incremental search
-    fg = "#1e1e2e",
+    bg = cp.blue,
+    fg = cp.base,
   },
   -- Terminal colors consistency
   Terminal = {
@@ -112,7 +117,7 @@ M.override = {
     bg = "NONE",
   },
   LineNrAbove = {
-    bg = "NONE", 
+    bg = "NONE",
   },
   LineNrBelow = {
     bg = "NONE",
@@ -122,87 +127,87 @@ M.override = {
 ---@type HLTable
 M.add = {
   NvimTreeOpenedFolderName = { fg = "green", bold = true },
-  
+
   -- TreeSitter highlight groups for more vibrant syntax highlighting
-  ["@keyword"] = { fg = "#cba6f7", bold = true },
-  ["@function"] = { fg = "#89b4fa", bold = true },
-  ["@function.call"] = { fg = "#89b4fa" },
-  ["@method"] = { fg = "#89b4fa", bold = true },
-  ["@method.call"] = { fg = "#89b4fa" },
-  ["@string"] = { fg = "#a6e3a1" },
-  ["@string.regex"] = { fg = "#f9e2af" },
-  ["@number"] = { fg = "#fab387" },
-  ["@boolean"] = { fg = "#f38ba8" },
-  ["@type"] = { fg = "#f9e2af", bold = true },
-  ["@type.builtin"] = { fg = "#f9e2af" },
-  ["@constant"] = { fg = "#fab387" },
-  ["@constant.builtin"] = { fg = "#fab387", bold = true },
-  ["@variable"] = { fg = "#cdd6f4" },
-  ["@variable.builtin"] = { fg = "#f38ba8" },
-  ["@operator"] = { fg = "#89dceb" },
-  ["@punctuation"] = { fg = "#bac2de" },
-  ["@punctuation.bracket"] = { fg = "#89dceb" },
-  ["@comment"] = { fg = "#89b4fa", italic = true },
-  ["@tag"] = { fg = "#f38ba8" },
-  ["@tag.attribute"] = { fg = "#f9e2af" },
-  ["@property"] = { fg = "#89dceb" },
-  ["@parameter"] = { fg = "#fab387", italic = true },
-  ["@field"] = { fg = "#89dceb" },
-  ["@namespace"] = { fg = "#cba6f7" },
-  ["@include"] = { fg = "#94e2d5" },
-  ["@conditional"] = { fg = "#cba6f7", bold = true },
-  ["@repeat"] = { fg = "#cba6f7", bold = true },
-  ["@exception"] = { fg = "#f38ba8", bold = true },
+  ["@keyword"] = { fg = ts.keyword, bold = true },
+  ["@function"] = { fg = ts.func, bold = true },
+  ["@function.call"] = { fg = ts.func },
+  ["@method"] = { fg = ts.func, bold = true },
+  ["@method.call"] = { fg = ts.func },
+  ["@string"] = { fg = ts.string },
+  ["@string.regex"] = { fg = ts.type },
+  ["@number"] = { fg = ts.number },
+  ["@boolean"] = { fg = ts.boolean },
+  ["@type"] = { fg = ts.type, bold = true },
+  ["@type.builtin"] = { fg = ts.type_builtin },
+  ["@constant"] = { fg = ts.constant },
+  ["@constant.builtin"] = { fg = ts.constant_builtin, bold = true },
+  ["@variable"] = { fg = ts.variable },
+  ["@variable.builtin"] = { fg = ts.variable_builtin },
+  ["@operator"] = { fg = ts.operator },
+  ["@punctuation"] = { fg = ts.punctuation },
+  ["@punctuation.bracket"] = { fg = cp.cyan },
+  ["@comment"] = { fg = c.comment, italic = true },
+  ["@tag"] = { fg = ts.tag },
+  ["@tag.attribute"] = { fg = ts.attribute },
+  ["@property"] = { fg = ts.property },
+  ["@parameter"] = { fg = ts.parameter, italic = true },
+  ["@field"] = { fg = ts.field },
+  ["@namespace"] = { fg = ts.namespace },
+  ["@include"] = { fg = cp.teal },
+  ["@conditional"] = { fg = ts.keyword, bold = true },
+  ["@repeat"] = { fg = ts.keyword, bold = true },
+  ["@exception"] = { fg = cp.red, bold = true },
   -- Enhanced floating window colors
   NormalFloat = {
-    bg = "#0f1419",  -- Darker than terminal bg for contrast
-    fg = "#cdd6f4", -- White
+    bg = "#0f1419",
+    fg = cp.text,
   },
   FloatBorder = {
     bg = "#0f1419",
-    fg = "#bac2de", -- Grey foreground
+    fg = cp.subtext1,
   },
   -- Popup menu colors
   Pmenu = {
-    bg = "#0f1419",
-    fg = "#cdd6f4", -- White
+    bg = c.pmenu_bg,
+    fg = cp.text,
   },
   PmenuSel = {
-    bg = "#1a2332",
-    fg = "#cdd6f4", -- White
+    bg = c.pmenu_sel,
+    fg = cp.text,
   },
   -- Better line numbers
   LineNr = {
-    fg = "#6c7086", -- Grey
+    fg = cp.overlay0,
   },
   CursorLineNr = {
-    fg = "#cdd6f4", -- White
+    fg = cp.text,
     bold = true,
   },
   -- NvimTree with transparency support
   NvimTreeNormal = {
-    bg = "NONE",  -- Let it be transparent
-    fg = "#cdd6f4", -- White
+    bg = "NONE",
+    fg = cp.text,
   },
   NvimTreeFolderIcon = {
-    fg = "#89b4fa", -- Blue
+    fg = cp.blue,
   },
   NvimTreeFolderArrowClosed = {
-    fg = "#bac2de", -- Grey foreground
+    fg = cp.subtext1,
   },
   NvimTreeFolderArrowOpen = {
-    fg = "#bac2de", -- Grey foreground
+    fg = cp.subtext1,
   },
   NvimTreeIndentMarker = {
-    fg = "#6c7086", -- Grey
+    fg = cp.overlay0,
   },
   NvimTreeWinSeparator = {
-    fg = "#1a2332",
+    fg = c.cursor_line,
     bg = "NONE",
   },
   -- Outline window separator
   WinSeparator = {
-    fg = "#bac2de",
+    fg = cp.subtext1,
     bg = "NONE",
   },
 }

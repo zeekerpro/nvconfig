@@ -1,5 +1,6 @@
 ---@type MappingsTable
 local M = {}
+local utils = require("custom.core.utils")
 
 -- Disable default mappings
 M.disabled = {
@@ -67,23 +68,16 @@ M.bufferline = {
     ["<TAB>"] = { "<cmd>BufferLineCycleNext<CR>", "  goto next buffer" },
     ["<S-Tab>"] = { "<cmd>BufferLineCyclePrev<CR>", "  goto prev buffer" },
 
-    -- Close buffer with custom function to avoid tabufline conflicts
-    ["<leader>x"] = { 
-      function()
-        -- First close outline if it's open
-        pcall(function()
-          vim.cmd("OutlineClose")
-        end)
-        
-        -- Then close the buffer
-        local buf = vim.api.nvim_get_current_buf()
-        if vim.bo[buf].modified then
-          vim.cmd("confirm bdelete")
-        else
-          vim.cmd("bdelete")
-        end
-      end, 
-      "   close buffer" 
+    -- Close buffer with smart close function
+    ["<leader>x"] = {
+      utils.smart_close_buffer,
+      "   close buffer"
+    },
+
+    -- Close all buffers except current
+    ["<leader>xx"] = {
+      utils.close_all_buffers,
+      "   close all buffers"
     },
 
     -- Pick buffers via telescope
