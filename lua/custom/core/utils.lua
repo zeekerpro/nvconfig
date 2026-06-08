@@ -34,9 +34,20 @@ M.smart_close_buffer = function()
 end
 
 -- Close all buffers except the current one
--- Prompts for confirmation if any buffers have unsaved changes
+-- Iterates over listed buffers and deletes each one except the current,
+-- avoiding the leftover [No Name] buffer that "%bd|e#" leaves behind.
+-- Prompts for confirmation on buffers with unsaved changes.
 M.close_all_buffers = function()
-  vim.cmd("confirm %bd|e#")
+  local current = vim.api.nvim_get_current_buf()
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if buf ~= current and vim.bo[buf].buflisted then
+      if vim.bo[buf].modified then
+        vim.cmd("confirm bdelete " .. buf)
+      else
+        vim.cmd("bdelete " .. buf)
+      end
+    end
+  end
 end
 
 -- Additional utility functions can be added here as needed
